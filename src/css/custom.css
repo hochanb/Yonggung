@@ -1,0 +1,11 @@
+
+:root{
+  --color-coralblue: #4DD0E1;
+
+  --color-coralyellow: #F5EEB9;
+
+}
+
+.font-coralblue{
+  color: var(--color-coralblue);
+}

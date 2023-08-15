@@ -14,6 +14,7 @@ export default function ScrollSection({ children, style}) {
       height: '100vh',
       width: '100vw',
       scrollSnapAlign: 'start',
+      scrollSnapStop: "always",
       overflow: 'hidden',
       }} >
       {children}
