@@ -1,10 +1,11 @@
 import glassy from 'images/members/glassy.jpg'
 import { HexagonPath } from 'svgpaths'
 import { CashbagIconPath, MusicIconPath, SegmentedCirclePath, SpannerIconPath, StarIconPath, TriangleIconPath, WandIconPath } from '../svgpaths';
+import 'css/custom.css'
 
 export function IntroDawn() {
   return (
-    <div className="w-full p-10  text-white">
+    <div className="w-full p-10  text-white fade-in">
       <div style={{
         fontSize: '25px',
         fontWeight: '500',
@@ -39,7 +40,7 @@ export function IntroDawn() {
 
 export function IntroGreeting() {
   return (
-    <div className="flex w-full justify-center flex-col pt-16 pb-20">
+    <div className="flex w-full justify-center flex-col pt-16 pb-20 fade-in">
       <div className="flex w-full justify-center">
         <img src={glassy} alt="placeholder"
         style={{
@@ -114,7 +115,7 @@ const TeamButton = ({name, index, onClick, iconPath, center=false}) => {
       </svg>
     </div>
     <div style={{
-      marginTop: '0.6rem',
+      marginTop: '0.3rem',
       fontSize: '18px',
       color: 'white',
       fontWeight: 700,
@@ -129,7 +130,7 @@ const TeamButton = ({name, index, onClick, iconPath, center=false}) => {
 export const OrganizationChart = () => {
 
   return(
-    <div className="flex flex-col w-full justify-center items-center">
+    <div className="flex flex-col w-full justify-center items-center fade-in">
       <div style={{
         marginTop: '2rem',
         width: '100vw',

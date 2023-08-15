@@ -5,13 +5,15 @@ import {WaveBottom, WaveTop} from "components/Wave";
 import { useEffect, useState } from "react";
 import { OrganizationChart } from "../components/IntroContents";
 
+
 export default function IntroPage() {
   const [index, setIndex] = useState(0);
 
   
 
   return (
-    <div style={{
+    <div 
+    style={{
       width: '100vw',
       height: '100vh',
       overflow: 'scroll',
