@@ -1,4 +1,3 @@
-import glassy from 'images/members/glassy.jpg'
 import { HexagonPath } from 'svgpaths'
 import { CashbagIconPath, MusicIconPath, SegmentedCirclePath, SpannerIconPath, StarIconPath, TriangleIconPath, WandIconPath } from '../svgpaths';
 import 'css/custom.css'
@@ -42,7 +41,7 @@ export function IntroGreeting() {
   return (
     <div className="flex w-full justify-center flex-col pt-16 pb-20 fade-in">
       <div className="flex w-full justify-center">
-        <img src={glassy} alt="placeholder"
+        <img src={`${process.env.PUBLIC_URL}/images/members/glassy.jpg`} alt="placeholder"
         style={{
           width: '125px',
           height: '150px',
@@ -133,8 +132,8 @@ export const OrganizationChart = () => {
     <div className="flex flex-col w-full justify-center items-center fade-in">
       <div style={{
         marginTop: '2rem',
-        width: '100vw',
-        height: '100vw',
+        width: '390px',
+        height: '390px',
         // background: 'white',
         position: 'relative',
       }}>

@@ -23,7 +23,7 @@ function IntroTabIcon({selected=true, innerIconPath, label, onClick}) {
   return (
     <div className='w-[120px] h-full relative' onClick={onClick}>
 
-    <div className='w-full flex justify-center' onClick={onClick}
+    <div className='w-full flex justify-center' 
     style={{
       transform: selected?'scale(1) translateY(-8px)':'scale(1) translateY(0)',
       transitionProperty: 'transform',
