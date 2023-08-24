@@ -3,13 +3,11 @@ import {IntroDawn, IntroGreeting} from "components/IntroContents";
 import IntroHeaderTab from "components/IntroHeaderTab";
 import {WaveBottom, WaveTop} from "components/Wave";
 import { useEffect, useState } from "react";
-import { OrganizationChart } from "../components/IntroContents";
+import { OrganizationChart } from "components/IntroContents";
 
 
 export default function IntroPage() {
   const [index, setIndex] = useState(0);
-
-  
 
   return (
     <div 
