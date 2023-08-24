@@ -1,7 +1,7 @@
 import ParallaxElement, {
   ParallaxContainer,
-} from "../components/ParallaxElement";
-import ScrollSection, { ScrollContainer } from "../components/ScrollSection";
+} from "src/components/ParallaxElement";
+import ScrollSection, { ScrollContainer } from "src/components/ScrollSection";
 import React, { useState, useRef, useEffect } from "react";
 
 function clampScroll(scroll, sectionIndex) {
