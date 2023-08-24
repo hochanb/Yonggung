@@ -1,8 +1,6 @@
 import { useRef, useState } from "react"
 import Header from "components/Header";
-import { WaveBottom, WaveTop } from "components/Wave";
 import { MusicalContainer, MusicalHeader } from "components/MusicalContents";
-import TopButton from "components/TopButton";
 import { useEffect } from "react";
 
 export default function MusicalPage(){
