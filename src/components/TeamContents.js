@@ -48,37 +48,44 @@ export const TeamHeader=({index=0,setIndex})=>{
           <path d="M13.2123 20.661C14.1449 19.8795 14.1457 18.4453 13.2139 17.6628L6.93418 12.3887C5.98253 11.5894 5.98253 10.1249 6.93418 9.32563L13.2139 4.05148C14.1457 3.26895 14.1449 1.83483 13.2123 1.05329C12.4852 0.44394 11.4257 0.44394 10.6986 1.05329L0.82915 9.32425C-0.124693 10.1236 -0.124694 11.5907 0.829149 12.39L10.6986 20.661C11.4257 21.2703 12.4852 21.2703 13.2123 20.661Z" fill="white"/>
       </svg>  
       <TeamButton iconPath={
+        //창작진
         <StarIconPath color={'white'} strokeWidth={1} s={1.2} x={25} y={24} />}
         selected={index===0}
         onClick={()=>setIndex(0)}
       />
       <TeamButton iconPath={
-        <SpannerIconPath color={'white'} strokeWidth={1} s={1.2} x={27} y={27}/>}
+        //연출
+        <SegmentedCirclePath color={'white'} strokeWidth={1} s={1.2} x={16} y={16} />}
         selected={index===1}
         onClick={()=>setIndex(1)}
       />
       <TeamButton iconPath={
-        <SegmentedCirclePath color={'white'} strokeWidth={1} s={1.2} x={16} y={16} />}
+        //음악
+        <MusicIconPath color={'white'} strokeWidth={1} s={1.2} x={23} y={24} />}
         selected={index===2}
         onClick={()=>setIndex(2)}
       />
       <TeamButton iconPath={
-        <MusicIconPath color={'white'} strokeWidth={1} s={1.2} x={23} y={24} />}
+        //경영지원
+        <CashbagIconPath color={'white'} strokeWidth={1} s={1.2} x={23} y={22} />}
         selected={index===3}
         onClick={()=>setIndex(3)}
       />
       <TeamButton iconPath={
-        <CashbagIconPath color={'white'} strokeWidth={1} s={1.2} x={23} y={22} />}
+        //디자인
+        <WandIconPath color={'white'} strokeWidth={1} s={1.2} x={25} y={25} />}
         selected={index===4}
         onClick={()=>setIndex(4)}
       />
       <TeamButton iconPath={
-        <WandIconPath color={'white'} strokeWidth={1} s={1.2} x={25} y={25} />}
+        //홍보
+        <TriangleIconPath color={'white'} strokeWidth={1} s={1.2} x={25} y={23} />}
         selected={index===5}
         onClick={()=>setIndex(5)}
       />
       <TeamButton iconPath={
-        <TriangleIconPath color={'white'} strokeWidth={1} s={1.2} x={25} y={23} />}
+        //무대
+        <SpannerIconPath color={'white'} strokeWidth={1} s={1.2} x={27} y={27}/>}
         selected={index===6}
         onClick={()=>setIndex(6)}
       />

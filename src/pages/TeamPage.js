@@ -3,10 +3,12 @@ import { TeamDetails, TeamHeader } from "components/TeamContents";
 import {WaveBottom, WaveTop} from "components/Wave";
 import TopButton from "components/TopButton";
 import { useState, useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 
 export default function TeamPage(){
-  const [index, setIndex] = useState(1)
+  const location=useLocation();
+  const [index, setIndex] = useState(location.state?.index || 0)
   const ref= useRef(null)
 
   return (

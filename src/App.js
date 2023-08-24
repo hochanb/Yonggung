@@ -3,6 +3,9 @@ import './App.css';
 import IntroPage from 'pages/IntroPage';
 import TeamPage from 'pages/TeamPage';
 import MusicalPage from 'pages/MusicalPage';
+import MainPage from 'pages/MainPage';
+import NavPage from 'pages/NavPage';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
@@ -10,7 +13,17 @@ function App() {
       {/* <MainPage /> */}
       {/* <IntroPage /> */}
       {/* <TeamPage /> */}
-      <MusicalPage/>
+      {/* <MusicalPage/> */}
+      {/* <NavPage/> */}
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<NavPage/>}/>
+        <Route path="/main" element={<MainPage />}/>
+        <Route path="/intro" element={<IntroPage/>}/>
+        <Route path='/team' element={<TeamPage/>}/>
+        <Route path='/musical' element={<MusicalPage/>}/>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
