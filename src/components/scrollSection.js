@@ -6,7 +6,7 @@ import React from "react";
 * 
 */
 
-export default function ScrollSection({ children, style}) {
+export function ScrollSection({ children, style}) {
   
   return (
     <div className="scroll-section" style={{

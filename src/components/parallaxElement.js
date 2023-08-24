@@ -1,4 +1,4 @@
-export default function ParallaxElement(props, 
+export function ParallaxElement(props, 
   {
     children, 
     style,
