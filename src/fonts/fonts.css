@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'SUITE Variable';
+	font-weight: 100 900;
+	src: url('./SUITE-Variable.woff2') format('woff2-variations');
+}
+
+@font-face {
+	font-family: 'icejaram';
+	font-weight: 300 900;
+	src: url('./icejaram.woff') format('woff');
+	}

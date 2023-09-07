@@ -4,23 +4,25 @@ import 'css/custom.css'
 import {TeamsData} from 'MemberInfo'
 import { useEffect } from "react"
 
-const TeamButton=({selected, onClick, iconPath})=>{
+const tabIconSize=45;
+
+const TeamButton=({selected, onClick, iconPath, offsetY=0})=>{
   return(
     <div style={{
-      width: '40px',
-      height: '40px',
-      transform: selected?'translateY(-4px)':'translateY(0)',
+      width: `${tabIconSize}px`,
+      height: `${tabIconSize}px`,
+      transform: `translateY(${offsetY}px)`,
       transitionProperty: 'transform',
       transitionDuration: '0.1s',
     }}
     onClick={onClick}
     >
     <div className='w-full h-full absolute' > 
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" viewBox="0 0 90 90" fill="none" className='absolute top-0'
+      <svg xmlns="http://www.w3.org/2000/svg" width={tabIconSize} viewBox="0 0 90 90" fill="none" className='absolute top-0'
       >
         <HexagonPath color={selected?'#F5EEB9':'rgba(255,255,255,0.33)'} strokeWidth={2} s={0.95} x={-7} y={-3}/>
       </svg>
-      < svg xmlns="http://www.w3.org/2000/svg" width="40" viewBox="0 0 90 90" fill="none" className='absolute top-0'
+      < svg xmlns="http://www.w3.org/2000/svg" width={tabIconSize} viewBox="0 0 90 90" fill="none" className='absolute top-0'
           style={selected?{
             filter: `drop-shadow(0px 0px 3px rgba(0,0,0,0.25))`,
           }:null}
@@ -43,51 +45,58 @@ const TeamButton=({selected, onClick, iconPath})=>{
 
 export const TeamHeader=({index=0,setIndex})=>{
   return(
-    <div className="w-full h-[48px] relative flex justify-evenly pl-2 pr-2">
+    <div className="w-full h-[48px] relative flex justify-evenly pl-4 pr-4">
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="40" viewBox="0 0 14 22" fill="none">
           <path d="M13.2123 20.661C14.1449 19.8795 14.1457 18.4453 13.2139 17.6628L6.93418 12.3887C5.98253 11.5894 5.98253 10.1249 6.93418 9.32563L13.2139 4.05148C14.1457 3.26895 14.1449 1.83483 13.2123 1.05329C12.4852 0.44394 11.4257 0.44394 10.6986 1.05329L0.82915 9.32425C-0.124693 10.1236 -0.124694 11.5907 0.829149 12.39L10.6986 20.661C11.4257 21.2703 12.4852 21.2703 13.2123 20.661Z" fill="white"/>
       </svg>  
       <TeamButton iconPath={
         //창작진
-        <StarIconPath color={'white'} strokeWidth={1} s={1.2} x={25} y={24} />}
+        <StarIconPath color={'white'} strokeWidth={1} s={1.2} x={21} y={20} />}
         selected={index===0}
         onClick={()=>setIndex(0)}
+        offsetY={-4}
       />
       <TeamButton iconPath={
         //연출
         <SegmentedCirclePath color={'white'} strokeWidth={1} s={1.2} x={16} y={16} />}
         selected={index===1}
         onClick={()=>setIndex(1)}
+        offsetY={0}
       />
       <TeamButton iconPath={
         //음악
-        <MusicIconPath color={'white'} strokeWidth={1} s={1.2} x={23} y={24} />}
+        <MusicIconPath color={'white'} strokeWidth={1} s={1.2} x={20} y={22} />}
         selected={index===2}
         onClick={()=>setIndex(2)}
+        offsetY={-6}
       />
       <TeamButton iconPath={
         //경영지원
-        <CashbagIconPath color={'white'} strokeWidth={1} s={1.2} x={23} y={22} />}
+        <CashbagIconPath color={'white'} strokeWidth={1} s={1.2} x={19} y={18} />}
         selected={index===3}
         onClick={()=>setIndex(3)}
+        offsetY={-2}
       />
       <TeamButton iconPath={
         //디자인
-        <WandIconPath color={'white'} strokeWidth={1} s={1.2} x={25} y={25} />}
+        <WandIconPath color={'white'} strokeWidth={1} s={1.2} x={22} y={19} />}
         selected={index===4}
         onClick={()=>setIndex(4)}
+        offsetY={-2}
       />
       <TeamButton iconPath={
         //홍보
-        <TriangleIconPath color={'white'} strokeWidth={1} s={1.2} x={25} y={23} />}
+        <TriangleIconPath color={'white'} strokeWidth={1} s={1.2} x={21} y={19} />}
         selected={index===5}
         onClick={()=>setIndex(5)}
+        offsetY={-6}
       />
       <TeamButton iconPath={
         //무대
-        <SpannerIconPath color={'white'} strokeWidth={1} s={1.2} x={27} y={27}/>}
+        <SpannerIconPath color={'white'} strokeWidth={1} s={1.2} x={23} y={24}/>}
         selected={index===6}
         onClick={()=>setIndex(6)}
+        offsetY={-10}
       />
 
     </div>
@@ -103,7 +112,7 @@ const MemberProfileImage=({fileName, scale=1})=>{
       transform: `scale(${scale})`
     }}>
       <div className="w-full h-full p-[7px] rounded-full bg-[rgba(255,255,255,0.12)]">
-        <img className="w-full h-full rounded-full border-white border-[4px] bg-white" alt="x"
+        <img className="w-full h-full rounded-full border-white border-[2px] bg-white" alt="x"
           src={`${process.env.PUBLIC_URL}/images/members/${fileName}`} 
         />
 
@@ -127,7 +136,7 @@ const MemberProfileCell=({memberData, toggled=false, onClick, position, index})=
         {toggled?`${memberData.Name} ▲`: `${memberData.Name} ▼`}
       </div>
 
-      <div className="w-auto h-auto mt-2 pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[12px]">
+      <div className="w-auto h-auto mt-2 pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[10px]">
           {memberData.Insta}
       </div>
       
@@ -140,7 +149,7 @@ const MemberProfileCell=({memberData, toggled=false, onClick, position, index})=
           )})}
 
       </div>
-      <h2 className="text-white text-[14px] pl-8 pr-8 pb-12">
+      <h2 className="text-white text-[14px] pl-8 pr-8 pb-12 font-light">
         {memberData.Words}
       </h2>
 
@@ -220,11 +229,31 @@ export const TeamDetails=({index})=>{
       setToggledIndex(i);
     }
   }
+  const bgIcon=(i)=>{
+    switch(i){
+      case 0:
+        return <StarIconPath color={'white'} strokeWidth={1} s={6} x={40} y={30} />
+      case 1:
+        return <SegmentedCirclePath s={6.5}/>
+      case 2:
+        return <MusicIconPath color={'white'} strokeWidth={1} s={6} x={23} y={50} />
+      case 3:
+        return <CashbagIconPath color={'white'} strokeWidth={1} s={6} x={23} y={0} />
+      case 4:
+        return <WandIconPath color={'white'} strokeWidth={1} s={6} x={25} y={0} />
+      case 5:
+        return <TriangleIconPath color={'white'} strokeWidth={1} s={6} x={38} y={18} />
+      case 6:
+        return <SpannerIconPath color={'white'} strokeWidth={1} s={6.5} x={25} y={50} />
+      default:
+        return null;
+    }
+  }
 
   return(
     <div key={index} className="w-full flex flex-col justify-center items-center pb-20 fade-in">
       <h1 className="text-white text-[40px] text-center m-8">{teamData.TeamName}</h1>
-      <h2 className="text-white text-[14px] pl-8 pr-8">
+      <h2 className="text-white text-[16px] pl-8 pr-8 font-light">
         {teamData.TeamDescription}
       </h2>
 
@@ -233,22 +262,22 @@ export const TeamDetails=({index})=>{
         <CreatorTeamTab index={creatorTeamIndex} setIndex={setCreatorTeamIndex}/>
       }
 
+      <svg xmlns="http://www.w3.org/2000/svg" width="390" height="37" viewBox="0 0 390 37" fill="none" className="mt-10 mb-10">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M390 1.17341L383.5 3.19485C377 5.21628 364 9.25914 351 9.25914C338 9.25914 325 5.21627 312 2.7069C299 0.197538 286 -0.778327 273 0.685467C260 2.21897 247 6.19212 234 7.72562C221 9.25912 208 8.21355 195 6.19212C182 4.24039 169 1.17339 156 1.17338C143 1.17338 130 4.24038 117 5.70418C104 7.23768 91 7.23767 78 9.2591C65 11.2108 52 15.2537 39 16.7872C26 18.251 13 17.2751 6.5 16.7872L-9.86871e-07 16.2295L-2.24986e-06 37L6.5 37C13 37 26 37 39 37C52 37 65 37 78 37C91 37 104 37 117 37C130 37 143 37 156 37.0001C169 37.0001 182 37.0001 195 37.0001C208 37.0001 221 37.0001 234 37.0001C247 37.0001 260 37.0001 273 37.0001C286 37.0001 299 37.0001 312 37.0001C325 37.0001 338 37.0001 351 37.0001C364 37.0001 377 37.0001 383.5 37.0001L390 37.0001L390 1.17341Z" fill="url(#paint0_linear_339_668)" fill-opacity="0.31"/>
+        <defs>
+          <linearGradient id="paint0_linear_339_668" x1="195.5" y1="0.528547" x2="194.941" y2="36.9992" gradientUnits="userSpaceOnUse">
+            <stop stop-color="white"/>
+            <stop offset="1" stop-color="white" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+      </svg>
 
       <div key={creatorTeamIndex} className="w-full flex flex-col justify-center items-center relative fade-in">
-        <div className="w-[317px] h-[110px] relative">
+        <div className="w-[317px] h-[110px] relative blur-[7.5px] opacity-40">
           <svg xmlns="http://www.w3.org/2000/svg" width="317" height="311" viewBox="0 0 317 311" fill="none" 
             className="absolute top-0 left-0"
             >
-            <g filter="url(#filter0_f_116_2421)">
-              <path d="M149.89 113.35H264.69C258.232 97.1925 248.364 83.3158 235.086 71.7198C221.807 60.1239 206.563 51.989 189.352 47.315L149.89 113.35ZM116.885 141.45L174.285 44.505C171.654 44.0367 169.023 43.6854 166.393 43.4512C163.762 43.2171 161.131 43.1 158.5 43.1C142.715 43.1 128.006 46.0271 114.374 51.8812C100.741 57.7354 88.6633 65.58 78.14 75.415L116.885 141.45ZM47.2875 183.6H125.495L68.095 86.655C60.4417 96.2558 54.4625 106.854 50.1575 118.45C45.8525 130.046 43.7 142.396 43.7 155.5C43.7 160.417 44.0014 165.157 44.6041 169.719C45.2068 174.28 46.1012 178.907 47.2875 183.6ZM127.648 263.685L166.393 197.65H52.31C58.7675 213.807 68.6355 227.684 81.9141 239.28C95.1926 250.876 110.437 259.011 127.648 263.685ZM158.5 267.9C174.285 267.9 188.994 264.973 202.626 259.119C216.259 253.265 228.337 245.42 238.86 235.585L200.115 169.55L142.715 266.495C145.346 266.963 147.914 267.315 150.421 267.549C152.927 267.783 155.62 267.9 158.5 267.9ZM248.905 224.345C256.558 214.744 262.537 204.146 266.842 192.55C271.147 180.954 273.3 168.604 273.3 155.5C273.3 150.582 272.999 145.843 272.396 141.281C271.793 136.72 270.899 132.093 269.712 127.4H191.505L248.905 224.345ZM158.5 296C138.888 296 120.353 292.31 102.894 284.929C85.4346 277.548 70.1853 267.478 57.146 254.721C44.1162 241.964 33.832 227.038 26.2935 209.944C18.7549 192.85 14.9905 174.702 15 155.5C15 136.064 18.7693 117.855 26.3078 100.874C33.8464 83.8918 44.1305 69.0269 57.1603 56.2789C70.1901 43.5121 85.4298 33.443 102.879 26.0714C120.329 18.6998 138.869 15.0094 158.5 15C178.351 15 196.948 18.6905 214.293 26.0714C231.637 33.4523 246.819 43.5215 259.84 56.2789C272.879 69.0363 283.163 83.9059 290.692 100.888C298.221 117.869 301.99 136.074 302 155.5C302 174.702 298.231 192.85 290.692 209.944C283.154 227.038 272.87 241.968 259.84 254.735C246.81 267.493 231.623 277.562 214.278 284.943C196.934 292.324 178.341 296.009 158.5 296Z" fill="white" fillOpacity="0.35"/>
-            </g>
-            <defs>
-              <filter id="filter0_f_116_2421" x="0" y="0" width="317" height="311" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                <feGaussianBlur stdDeviation="7.5" result="effect1_foregroundBlur_116_2421"/>
-              </filter>
-            </defs>
+              {bgIcon(index)}
           </svg>
         </div>
 
@@ -258,11 +287,11 @@ export const TeamDetails=({index})=>{
         
         <h2 className="text-white text-xl mt-8">{teamData.TeamHead}</h2>
         <h1 className="text-white text-2xl m-2">{teamData.TeamMembers[0].Name}</h1>
-        <div className="w-auto h-auto pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[12px]">
+        <div className="w-auto h-auto pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[14px] font-normal">
           {teamData.TeamMembers[0].Insta}
         </div>
 
-        <h2 className="text-white text-[14px] pl-8 pr-8 mt-8 text-justify"
+        <h2 className="text-white text-[15px] font-light pl-8 pr-8 mt-8 text-justify"
         style={headDetailOn? hideHeadDetail : showHeadDetail}>
           {teamData.TeamMembers[0].Words}
       </h2>

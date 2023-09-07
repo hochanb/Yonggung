@@ -5,6 +5,7 @@ import MainPage from './MainPage';
 import IntroPage from './IntroPage';
 import TeamPage from './TeamPage';
 import MusicalPage from './MusicalPage';
+import NumberPage from './NumberPage';
 
 function NavButton({name='none', link='/'}){
   return(
@@ -25,6 +26,7 @@ export default function  NavPage () {
       <NavButton name='intro' link='/intro'/>
       <NavButton name='team' link='/team'/>
       <NavButton name='musical' link='/musical'/>
+      <NavButton name='number' link='/number'/>
     </div>
     </>
     

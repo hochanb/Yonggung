@@ -41,9 +41,11 @@ function IntroTabIcon({selected=true, innerIconPath, label, onClick}) {
     </svg>
     </div>
 
-    <h1 className='mt-[6rem] font-bold'
+    <h1 className='mt-[6rem]'
       style={{
         color: selected?'#39D6E5':'#E8C64D',
+        fontWeight: selected?800:500,
+        fontSize: '17px',
       }}
     >
       {label}

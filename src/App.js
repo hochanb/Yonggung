@@ -6,6 +6,7 @@ import MusicalPage from 'pages/MusicalPage';
 import MainPage from 'pages/MainPage';
 import NavPage from 'pages/NavPage';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import NumberPage from 'pages/NumberPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/intro" element={<IntroPage/>}/>
         <Route path='/team' element={<TeamPage/>}/>
         <Route path='/musical' element={<MusicalPage/>}/>
+        <Route path='/number' element={<NumberPage/>}/>
       </Routes>
       </BrowserRouter>
     </div>

@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { WaveBottom, WaveTop } from "./Wave"
+import { WaveTop2, WaveTop1 } from "./Wave"
 import TopButton from "./TopButton";
 import { useState } from "react";
 import { BookIconPath, HexagonPath, ProfileIconPath, SegmentedCirclePath } from "svgpaths"
@@ -55,8 +55,8 @@ export function MusicalHeader({section=0, setSection}){
     }}>
           
       <div className="relative">
-        <WaveTop color="white" className="absolute top-0 w-full"/>
-        <WaveBottom className="absolute top-0"/>
+        <WaveTop1 color="white" className="absolute top-0 w-full"/>
+        <WaveTop2 className="absolute top-0"/>
       </div>
       <div className="w-full flex flex-row justify-evenly items-center">
         <HeaderItem 

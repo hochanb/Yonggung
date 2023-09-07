@@ -1,6 +1,6 @@
 import Header from "components/Header";
 import { TeamDetails, TeamHeader } from "components/TeamContents";
-import {WaveBottom, WaveTop} from "components/Wave";
+import {WaveTop2, WaveTop1} from "components/Wave";
 import TopButton from "components/TopButton";
 import { useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
@@ -28,13 +28,17 @@ export default function TeamPage(){
       </Header>
 
       <div className="relative">
-        <WaveTop color="white" className="absolute top-0 w-full"/>
-        <WaveBottom className="absolute top-0"/>
+        <WaveTop1 color="white" className="absolute top-0 w-full"/>
+        <WaveTop2 className="absolute top-0"/>
       </div>
 
+      <div style={{
+      background: 'var(--unnamed, linear-gradient(135deg, #4DEDED 0%, #A9C1FF 72.40%, #8B91FF 100%))',
+      }}>
       <TeamHeader index={index} setIndex={setIndex} />
       
       <TeamDetails index={index} setIndex={setIndex} />
+      </div>
       <TopButton pageRef={ref}/>
 
 

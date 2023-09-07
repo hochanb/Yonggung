@@ -30,9 +30,11 @@ export default function MainPage(props) {
   }
 
   return (
-    <div style={{ width: "100vw", height: "100vh"}}>
+    <div style={{ width: "100vw", height: "100vh", 
+    background: 'linear-gradient(180deg, #000 0%, #000 13.54%, #000 25%, #000001 45.31%, #008BC2 53.12%, #00BDFF 61.99%, #71D7FF 70.83%, #70DDF4 75%, #02BEFF 85.43%, #5CE6F0 88.54%, #5CE6F0 100%)'
+    }}>
       <ScrollContainer onScroll={onScroll} scrollRef={scrollRef} scrollAble={scrollAble}>
-        <ScrollSection style={{ backgroundColor: "pink" }}>
+        <ScrollSection style={{  }}>
 
         <ParallaxContainer>
           <ParallaxElement
@@ -63,7 +65,7 @@ export default function MainPage(props) {
 
         </ScrollSection>
 
-        <ScrollSection style={{ backgroundColor: "lightblue" }}>
+        <ScrollSection style={{  }}>
           <h1>Section 1</h1>
           <ParallaxContainer>
             <ParallaxElement
@@ -87,7 +89,7 @@ export default function MainPage(props) {
           </ParallaxContainer>
         </ScrollSection>
 
-        <ScrollSection style={{ backgroundColor: "lightblue" }}>
+        <ScrollSection style={{  }}>
           <h1>Section 2</h1>
           <ParallaxContainer>
             <ParallaxElement
@@ -111,7 +113,7 @@ export default function MainPage(props) {
           </ParallaxContainer>
         </ScrollSection>
         
-        <ScrollSection style={{ backgroundColor: "lightblue" }}>
+        <ScrollSection style={{  }}>
           <h1>Section 3</h1>
           <ParallaxContainer>
             <ParallaxElement
@@ -135,7 +137,7 @@ export default function MainPage(props) {
           </ParallaxContainer>
         </ScrollSection>
         
-        <ScrollSection style={{ backgroundColor: "lightblue" }}>
+        <ScrollSection style={{ }}>
           <h1>Section 4</h1>
           <div className="mt-[36rem]">
           <button className="mt-[2rem] w-60 h-20 bg-yellow-300 rounded-full" onClick={onEnterButtonPressed} 
