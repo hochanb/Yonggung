@@ -5,7 +5,13 @@
 }
 
 @font-face {
-	font-family: 'icejaram';
+	font-family: 'iceJaram';
 	font-weight: 300 900;
 	src: url('./icejaram.woff') format('woff');
 	}
+
+@font-face{
+	font-family: 'neurimbo Gothic';
+	font-weight: 300 900;
+	src: url('./neurimboGothicRegular.woff') format('woff');
+}

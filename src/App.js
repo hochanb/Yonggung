@@ -7,6 +7,10 @@ import MainPage from 'pages/MainPage';
 import NavPage from 'pages/NavPage';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import NumberPage from 'pages/NumberPage';
+import CastPage from 'pages/CastPage';
+import ActorPage from 'pages/ActorPage';
+import { ActorData } from 'MemberInfo';
+import BehindPage from 'pages/BehindPage';
 
 function App() {
   return (
@@ -24,6 +28,11 @@ function App() {
         <Route path='/team' element={<TeamPage/>}/>
         <Route path='/musical' element={<MusicalPage/>}/>
         <Route path='/number' element={<NumberPage/>}/>
+        <Route path='/cast' element={<CastPage/>}/>
+        <Route path='/behind' element={<BehindPage/>}/>
+        {ActorData.map((actor, index)=>
+            <Route key={index} path={`/cast/${index}`} element={<ActorPage index={index}/>}/>
+        )}
       </Routes>
       </BrowserRouter>
     </div>

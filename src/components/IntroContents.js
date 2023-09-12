@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 
 export function IntroDawn() {
   return (
-    <div className="w-full p-10 pt-20 text-white fade-in">
+    <div className="w-full p-10 pt-[7rem] text-white fade-in">
+      
       <div style={{
         fontSize: '25px',
         fontWeight: '500',

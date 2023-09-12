@@ -4,7 +4,7 @@ import 'css/custom.css'
 import {TeamsData} from 'MemberInfo'
 import { useEffect } from "react"
 
-const tabIconSize=45;
+const tabIconSize=50;
 
 const TeamButton=({selected, onClick, iconPath, offsetY=0})=>{
   return(
@@ -46,9 +46,9 @@ const TeamButton=({selected, onClick, iconPath, offsetY=0})=>{
 export const TeamHeader=({index=0,setIndex})=>{
   return(
     <div className="w-full h-[48px] relative flex justify-evenly pl-4 pr-4">
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="40" viewBox="0 0 14 22" fill="none">
+      {/* <svg xmlns="http://www.w3.org/2000/svg" width="14" height="40" viewBox="0 0 14 22" fill="none">
           <path d="M13.2123 20.661C14.1449 19.8795 14.1457 18.4453 13.2139 17.6628L6.93418 12.3887C5.98253 11.5894 5.98253 10.1249 6.93418 9.32563L13.2139 4.05148C14.1457 3.26895 14.1449 1.83483 13.2123 1.05329C12.4852 0.44394 11.4257 0.44394 10.6986 1.05329L0.82915 9.32425C-0.124693 10.1236 -0.124694 11.5907 0.829149 12.39L10.6986 20.661C11.4257 21.2703 12.4852 21.2703 13.2123 20.661Z" fill="white"/>
-      </svg>  
+      </svg>   */}
       <TeamButton iconPath={
         //창작진
         <StarIconPath color={'white'} strokeWidth={1} s={1.2} x={21} y={20} />}
@@ -252,7 +252,7 @@ export const TeamDetails=({index})=>{
 
   return(
     <div key={index} className="w-full flex flex-col justify-center items-center pb-20 fade-in">
-      <h1 className="text-white text-[40px] text-center m-8">{teamData.TeamName}</h1>
+      <h1 className="text-white text-[40px] text-center mt-[74px] mb-[36px]">{teamData.TeamName}</h1>
       <h2 className="text-white text-[16px] pl-8 pr-8 font-light">
         {teamData.TeamDescription}
       </h2>
@@ -262,8 +262,8 @@ export const TeamDetails=({index})=>{
         <CreatorTeamTab index={creatorTeamIndex} setIndex={setCreatorTeamIndex}/>
       }
 
-      <svg xmlns="http://www.w3.org/2000/svg" width="390" height="37" viewBox="0 0 390 37" fill="none" className="mt-10 mb-10">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M390 1.17341L383.5 3.19485C377 5.21628 364 9.25914 351 9.25914C338 9.25914 325 5.21627 312 2.7069C299 0.197538 286 -0.778327 273 0.685467C260 2.21897 247 6.19212 234 7.72562C221 9.25912 208 8.21355 195 6.19212C182 4.24039 169 1.17339 156 1.17338C143 1.17338 130 4.24038 117 5.70418C104 7.23768 91 7.23767 78 9.2591C65 11.2108 52 15.2537 39 16.7872C26 18.251 13 17.2751 6.5 16.7872L-9.86871e-07 16.2295L-2.24986e-06 37L6.5 37C13 37 26 37 39 37C52 37 65 37 78 37C91 37 104 37 117 37C130 37 143 37 156 37.0001C169 37.0001 182 37.0001 195 37.0001C208 37.0001 221 37.0001 234 37.0001C247 37.0001 260 37.0001 273 37.0001C286 37.0001 299 37.0001 312 37.0001C325 37.0001 338 37.0001 351 37.0001C364 37.0001 377 37.0001 383.5 37.0001L390 37.0001L390 1.17341Z" fill="url(#paint0_linear_339_668)" fill-opacity="0.31"/>
+      <svg xmlns="http://www.w3.org/2000/svg" width="390" height="37" viewBox="0 0 390 37" fill="none" className="mt-[33px] mb-0">
+        <path fill-rule="evenodd" clipRule="evenodd" d="M390 1.17341L383.5 3.19485C377 5.21628 364 9.25914 351 9.25914C338 9.25914 325 5.21627 312 2.7069C299 0.197538 286 -0.778327 273 0.685467C260 2.21897 247 6.19212 234 7.72562C221 9.25912 208 8.21355 195 6.19212C182 4.24039 169 1.17339 156 1.17338C143 1.17338 130 4.24038 117 5.70418C104 7.23768 91 7.23767 78 9.2591C65 11.2108 52 15.2537 39 16.7872C26 18.251 13 17.2751 6.5 16.7872L-9.86871e-07 16.2295L-2.24986e-06 37L6.5 37C13 37 26 37 39 37C52 37 65 37 78 37C91 37 104 37 117 37C130 37 143 37 156 37.0001C169 37.0001 182 37.0001 195 37.0001C208 37.0001 221 37.0001 234 37.0001C247 37.0001 260 37.0001 273 37.0001C286 37.0001 299 37.0001 312 37.0001C325 37.0001 338 37.0001 351 37.0001C364 37.0001 377 37.0001 383.5 37.0001L390 37.0001L390 1.17341Z" fill="url(#paint0_linear_339_668)" fill-opacity="0.31"/>
         <defs>
           <linearGradient id="paint0_linear_339_668" x1="195.5" y1="0.528547" x2="194.941" y2="36.9992" gradientUnits="userSpaceOnUse">
             <stop stop-color="white"/>
@@ -283,7 +283,7 @@ export const TeamDetails=({index})=>{
 
         
         
-        <MemberProfileImage fileName={teamData.TeamMembers[0].Image} scale={1.8}/>
+        <MemberProfileImage fileName={teamData.TeamMembers[0].Image} scale={2.4}/>
         
         <h2 className="text-white text-xl mt-8">{teamData.TeamHead}</h2>
         <h1 className="text-white text-2xl m-2">{teamData.TeamMembers[0].Name}</h1>
