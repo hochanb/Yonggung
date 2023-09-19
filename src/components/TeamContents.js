@@ -3,6 +3,7 @@ import { useState } from "react"
 import 'css/custom.css'
 import {TeamsData} from 'MemberInfo'
 import { useEffect } from "react"
+import { WaveCenter } from "./Wave"
 
 const tabIconSize=50;
 
@@ -103,13 +104,14 @@ export const TeamHeader=({index=0,setIndex})=>{
   )
 }
 
-const MemberProfileImage=({fileName, scale=1})=>{
+const MemberProfileImage=({fileName, scale=1, head=false})=>{
 
   return(
-    <div className="w-[100px] h-[100px] p-[7px] rounded-full bg-[rgba(255,255,255,0.1)]"
+    <div className="w-[100px] h-[100px] p-[7px] rounded-full ]"
     style={{
       // filter: 'drop-shadow(0px 0px 12px rgba(0,0,120, 0.3))',
-      transform: `scale(${scale})`
+      transform: `scale(${scale})`,
+      background: head?'':'rgba(255,255,255,0.1)'
     }}>
       <div className="w-full h-full p-[7px] rounded-full bg-[rgba(255,255,255,0.12)]">
         <img className="w-full h-full rounded-full border-white border-[2px] bg-white" alt="x"
@@ -160,7 +162,7 @@ const MemberProfileCell=({memberData, toggled=false, onClick, position, index})=
   )
 }
 
-const CreatorTeamTab=({index=0, setIndex})=>{
+const CreatorTeamTab2=({index=0, setIndex})=>{
   return(
     <>
     <svg xmlns="http://www.w3.org/2000/svg" width="232" height="16" viewBox="0 0 232 16" fill="none"
@@ -189,6 +191,41 @@ const CreatorTeamTab=({index=0, setIndex})=>{
     </div>
     </>
 
+  )
+}
+const CreatorTeamTab=({index=0, setIndex})=>{
+  return(
+    <div className="relative flex flex-col items-center justify-center w-full">
+    <div className='relative mt-16 bg-[rgba(255,255,255,0.2)] w-auto h-[48px] rounded-full flex justify-evenly items-center'>
+    <div className={`absolute w-[88px] h-[40px] rounded-full transition-all left-[${index===0?16:index===1?136:256}px] bg-[#F5EEB9] `} style={{
+      filter:'drop-shadow(0 1px 3px rgba(0,0,0,0.1))',
+    }}/>
+    <div className='w-[120px] h-[40px] flex justify-center items-center z-[1]'
+    onClick={()=>setIndex(0)}
+    style={{
+      color: 'white',
+      filter: index===0?'drop-shadow(0 0 6px rgba(0,0,0,0.4))':'',
+    }}>
+      총괄
+    </div>
+    <div className='w-[120px] h-[40px] flex justify-center items-center z-[1] '
+    onClick={()=>setIndex(1)}
+    style={{
+      color: 'white',
+      filter: index===1?'drop-shadow(0 0 6px rgba(0,0,0,0.4))':'',
+    }}>
+      극작
+    </div>
+    <div className='w-[120px] h-[40px] flex justify-center items-center z-[1] '
+    onClick={()=>setIndex(2)}
+    style={{
+      color: 'white',
+      filter: index===2?'drop-shadow(0 0 6px rgba(0,0,0,0.4))':'',
+    }}>
+      작곡
+    </div>
+  </div>
+  </div>
   )
 }
 
@@ -236,7 +273,7 @@ export const TeamDetails=({index})=>{
       case 1:
         return <SegmentedCirclePath s={6.5}/>
       case 2:
-        return <MusicIconPath color={'white'} strokeWidth={1} s={6} x={23} y={50} />
+        return <MusicIconPath color={'white'} strokeWidth={1} s={8} x={-28} y={20} />
       case 3:
         return <CashbagIconPath color={'white'} strokeWidth={1} s={6} x={23} y={0} />
       case 4:
@@ -251,7 +288,7 @@ export const TeamDetails=({index})=>{
   }
 
   return(
-    <div key={index} className="w-full flex flex-col justify-center items-center pb-20 fade-in">
+    <div key={index} className="w-full flex flex-col justify-center items-center pb-20 fade-in relative">
       <h1 className="text-white text-[40px] text-center mt-[74px] mb-[36px]">{teamData.TeamName}</h1>
       <h2 className="text-white text-[16px] pl-8 pr-8 font-light">
         {teamData.TeamDescription}
@@ -262,19 +299,11 @@ export const TeamDetails=({index})=>{
         <CreatorTeamTab index={creatorTeamIndex} setIndex={setCreatorTeamIndex}/>
       }
 
-      <svg xmlns="http://www.w3.org/2000/svg" width="390" height="37" viewBox="0 0 390 37" fill="none" className="mt-[33px] mb-0">
-        <path fill-rule="evenodd" clipRule="evenodd" d="M390 1.17341L383.5 3.19485C377 5.21628 364 9.25914 351 9.25914C338 9.25914 325 5.21627 312 2.7069C299 0.197538 286 -0.778327 273 0.685467C260 2.21897 247 6.19212 234 7.72562C221 9.25912 208 8.21355 195 6.19212C182 4.24039 169 1.17339 156 1.17338C143 1.17338 130 4.24038 117 5.70418C104 7.23768 91 7.23767 78 9.2591C65 11.2108 52 15.2537 39 16.7872C26 18.251 13 17.2751 6.5 16.7872L-9.86871e-07 16.2295L-2.24986e-06 37L6.5 37C13 37 26 37 39 37C52 37 65 37 78 37C91 37 104 37 117 37C130 37 143 37 156 37.0001C169 37.0001 182 37.0001 195 37.0001C208 37.0001 221 37.0001 234 37.0001C247 37.0001 260 37.0001 273 37.0001C286 37.0001 299 37.0001 312 37.0001C325 37.0001 338 37.0001 351 37.0001C364 37.0001 377 37.0001 383.5 37.0001L390 37.0001L390 1.17341Z" fill="url(#paint0_linear_339_668)" fill-opacity="0.31"/>
-        <defs>
-          <linearGradient id="paint0_linear_339_668" x1="195.5" y1="0.528547" x2="194.941" y2="36.9992" gradientUnits="userSpaceOnUse">
-            <stop stop-color="white"/>
-            <stop offset="1" stop-color="white" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-      </svg>
+      <WaveCenter/>
 
       <div key={creatorTeamIndex} className="w-full flex flex-col justify-center items-center relative fade-in">
         <div className="w-[317px] h-[110px] relative blur-[7.5px] opacity-40">
-          <svg xmlns="http://www.w3.org/2000/svg" width="317" height="311" viewBox="0 0 317 311" fill="none" 
+          <svg xmlns="http://www.w3.org/2000/svg" width="317" height="350" viewBox="0 0 317 350" fill="none" 
             className="absolute top-0 left-0"
             >
               {bgIcon(index)}
@@ -283,10 +312,14 @@ export const TeamDetails=({index})=>{
 
         
         
-        <MemberProfileImage fileName={teamData.TeamMembers[0].Image} scale={2.4}/>
+        <MemberProfileImage fileName={teamData.TeamMembers[0].Image} scale={2.4} head={true}/>
         
-        <h2 className="text-white text-xl mt-8">{teamData.TeamHead}</h2>
-        <h1 className="text-white text-2xl m-2">{teamData.TeamMembers[0].Name}</h1>
+        <h2 className="text-white text-xl mt-16" style={{textShadow: '0px 0px 15px rgba(97, 129, 247, 0.60)'}}>
+          {teamData.TeamHead}
+        </h2>
+        <h1 className="text-white text-2xl m-2" style={{textShadow: '0px 0px 15px rgba(97, 129, 247, 0.60)'}}>
+          {teamData.TeamMembers[0].Name}
+        </h1>
         <div className="w-auto h-auto pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[14px] font-normal">
           {teamData.TeamMembers[0].Insta}
         </div>
@@ -313,7 +346,7 @@ export const TeamDetails=({index})=>{
         teamData.TeamMembers.length>1 && teamData.TeamMembers.map((member, i)=>{
           return(
             i!==0 &&
-            <MemberProfileCell memberData={member} toggled={toggledIndex===i+1} onClick={()=>toggleClicked(i+1)}/>
+            <MemberProfileCell key={i} memberData={member} toggled={toggledIndex===i+1} onClick={()=>toggleClicked(i+1)}/>
           )
         })
       }

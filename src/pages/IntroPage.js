@@ -24,9 +24,9 @@ export default function IntroPage() {
       <IntroHeaderTab index={index} setIndex={setIndex}/>
       <div className="relative">
 
-      <div className="absolute top-0 z-10">
+      <div className="absolute top-0 z-10 w-full">
         <WaveTop1 color="white" className="absolute top-0 w-full"/>
-        <WaveTop2 className="absolute top-0"/>
+        <WaveTop2 className="absolute top-0 w-full"/>
       </div>
 
       {index===0? <IntroDawn/>:

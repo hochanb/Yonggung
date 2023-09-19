@@ -1,7 +1,8 @@
+
 export function WaveTop1({color='white', className=''}){
   return(
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="390" height="17" viewBox="0 0 390 17" fill="none"
+    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="390" height="17" viewBox="0 0 390 17" fill="none"
     className={className}>
     <path fillRule="evenodd" clipRule="evenodd" d="M390 16.4609L383.5 15.5321C377 14.6033 364 12.7458 351 12.7458C338 12.7458 325 14.6033 312 15.7563C299 16.9092 286 17.3576 273 16.685C260 15.9805 247 14.155 234 13.4504C221 12.7458 208 13.2262 195 14.155C182 15.0517 169 16.4609 156 16.4608C143 16.4608 130 15.0517 117 14.3791C104 13.6746 91 13.6746 78 12.7458C65 11.8491 52 9.99153 39 9.28695C26 8.6144 13 9.06276 6.50003 9.28695L7.91715e-07 9.54316L1.80494e-06 5.36604e-07L6.50003 1.0045e-06C13 1.47239e-06 26 2.40818e-06 39 3.34397e-06C52 4.27975e-06 65 5.21554e-06 78 6.15133e-06C91 7.08712e-06 104 8.0229e-06 117 8.95869e-06C130 9.89448e-06 143 1.08303e-05 156 1.17661e-05C169 1.27018e-05 182 1.36376e-05 195 1.45734e-05C208 1.55092e-05 221 1.6445e-05 234 1.73808e-05C247 1.83166e-05 260 1.92524e-05 273 2.01881e-05C286 2.11239e-05 299 2.20597e-05 312 2.29955e-05C325 2.39313e-05 338 2.48671e-05 351 2.58029e-05C364 2.67387e-05 377 2.76744e-05 383.5 2.81423e-05L390 2.86102e-05L390 16.4609Z" fill={color}/>
   </svg>
@@ -9,9 +10,9 @@ export function WaveTop1({color='white', className=''}){
   )
 };
 
-export function WaveTop2(props, {className=''}){
+export function WaveTop2({className=''}){
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="390" height="41" viewBox="0 0 390 41" fill="none" 
+    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"  width="390" height="41" viewBox="0 0 390 41" fill="none" 
       className={className}
     >
   <path d="M35 31.5002C22.6 31.1002 6.5 37.0002 0 40.0002V1H390V25.0004C368.5 20.5004 319.5 29.5004 312 31.5002C304.5 33.5 278 34.0004 270 34.5004C262 35.0004 244.5 40.0002 226 40.0002C207.5 40.0002 182 31.5002 164.5 31.5002C147 31.5002 122 38.5004 101.5 40.0002C81 41.5 50.5 32.0002 35 31.5002Z" fill="white" fillOpacity="0.3" stroke="white"/>
@@ -22,7 +23,7 @@ export function WaveTop2(props, {className=''}){
 export function WaveBottom1({color='white', className=''}){
   return (
 
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="390" height="57" viewBox="0 0 390 57" fill="none">
+    <svg className={className} preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="390" height="57" viewBox="0 0 390 57" fill="none">
       <path fillRule="evenodd" clipRule="evenodd" d="M390 1.80769L383.5 4.92179C377 8.03588 364 14.2641 351 14.2641C338 14.2641 325 8.03587 312 4.17009C299 0.304311 286 -1.19905 273 1.05598C260 3.4184 247 9.53921 234 11.9016C221 14.264 208 12.6533 195 9.53919C182 6.53248 169 1.80764 156 1.80763C143 1.80763 130 6.53246 117 8.7875C104 11.1499 91 11.1499 78 14.264C65 17.2707 52 23.4989 39 25.8613C26 28.1164 13 26.613 6.5 25.8613L-7.88683e-07 25.0022L-1.79803e-06 57L6.5 57C13 57 26 57 39 57C52 57 65 57 78 57C91 57 104 57 117 57C130 57 143 57 156 57C169 57 182 57 195 57C208 57.0001 221 57.0001 234 57.0001C247 57.0001 260 57.0001 273 57.0001C286 57.0001 299 57.0001 312 57.0001C325 57.0001 338 57.0001 351 57.0001C364 57.0001 377 57.0001 383.5 57.0001L390 57.0001L390 1.80769Z" fill={color} fillOpacity="0.15"/>
     </svg>
   )
@@ -31,8 +32,24 @@ export function WaveBottom1({color='white', className=''}){
 
 export function WaveBottom2({color='white', className=''}){
   return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="390" height="27" viewBox="0 0 390 27" fill="none">
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"  width="390" height="27" viewBox="0 0 390 27" fill="none">
       <path fillRule="evenodd" clipRule="evenodd" d="M-5.72416e-08 2.37991L6.5 4.9539C13 7.5279 26 12.6759 39 12.6759C52 12.6759 65 7.52791 78 4.33261C91 1.13731 104 -0.105304 117 1.75862C130 3.71131 143 8.77054 156 10.7232C169 12.6759 182 11.3445 195 8.77055C208 6.28532 221 2.37995 234 2.37996C247 2.37996 260 6.28533 273 8.14926C286 10.1019 299 10.1019 312 12.6759C325 15.1612 338 20.3092 351 22.2619C364 24.1258 377 22.8832 383.5 22.2619L390 21.5518L390 47.9999L383.5 47.9999C377 47.9999 364 47.9999 351 47.9999C338 47.9999 325 47.9999 312 47.9999C299 47.9999 286 47.9999 273 47.9999C260 47.9999 247 47.9999 234 47.9999C221 47.9999 208 47.9999 195 47.9999C182 47.9999 169 47.9999 156 47.9999C143 47.9999 130 47.9999 117 47.9999C104 47.9999 91 47.9998 78 47.9998C65 47.9998 52 47.9998 39 47.9998C26 47.9998 13 47.9998 6.5 47.9998L-1.80494e-06 47.9998L-5.72416e-08 2.37991Z" fill={color} fillOpacity="0.3"/>
     </svg>
+  )
+}
+
+export function WaveCenter({flip=false}){
+  return(
+    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="390" height="37" viewBox="0 0 390 37" fill="none" className="mt-[33px] mb-0 w-full">
+      <g transform={flip?"scale(-1,1) translate(-390,0)":""}>
+        <path fillRule="evenodd" clipRule="evenodd" d="M390 1.17341L383.5 3.19485C377 5.21628 364 9.25914 351 9.25914C338 9.25914 325 5.21627 312 2.7069C299 0.197538 286 -0.778327 273 0.685467C260 2.21897 247 6.19212 234 7.72562C221 9.25912 208 8.21355 195 6.19212C182 4.24039 169 1.17339 156 1.17338C143 1.17338 130 4.24038 117 5.70418C104 7.23768 91 7.23767 78 9.2591C65 11.2108 52 15.2537 39 16.7872C26 18.251 13 17.2751 6.5 16.7872L-9.86871e-07 16.2295L-2.24986e-06 37L6.5 37C13 37 26 37 39 37C52 37 65 37 78 37C91 37 104 37 117 37C130 37 143 37 156 37.0001C169 37.0001 182 37.0001 195 37.0001C208 37.0001 221 37.0001 234 37.0001C247 37.0001 260 37.0001 273 37.0001C286 37.0001 299 37.0001 312 37.0001C325 37.0001 338 37.0001 351 37.0001C364 37.0001 377 37.0001 383.5 37.0001L390 37.0001L390 1.17341Z" fill="url(#paint0_linear_339_668)" fillOpacity="0.31"/>
+      </g>
+    <defs>
+      <linearGradient id="paint0_linear_339_668" x1="195.5" y1="0.528547" x2="194.941" y2="36.9992" gradientUnits="userSpaceOnUse">
+        <stop stopColor="white"/>
+        <stop offset="1" stopColor="white" stopOpacity="0"/>
+      </linearGradient>
+    </defs>
+  </svg>
   )
 }

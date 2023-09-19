@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { WaveTop2, WaveTop1 } from "./Wave"
+import { WaveTop2, WaveTop1, WaveCenter } from "./Wave"
 import TopButton from "./TopButton";
 import { useState } from "react";
 import { BookIconPath, HexagonPath, ProfileIconPath, SegmentedCirclePath } from "svgpaths"
@@ -56,7 +56,7 @@ export function MusicalHeader({section=0, setSection}){
           
       <div className="relative">
         <WaveTop1 color="white" className="absolute top-0 w-full"/>
-        <WaveTop2 className="absolute top-0"/>
+        <WaveTop2 className="absolute top-0 w-full"/>
       </div>
       <div className="w-full flex flex-row justify-evenly items-center">
         <HeaderItem 
@@ -88,7 +88,7 @@ export function MusicalHeader({section=0, setSection}){
 const Content1=({pageRef})=>{
   return(
 
-    <div ref={pageRef} className="w-full pt-[280px] text-white" style={{
+    <div ref={pageRef} className="w-full pt-[280px] pb-[54px] text-white" style={{
       filter:'drop-shadow(0 0 6px rgba(0,0,0,0.3))'
     }}>
       <h1 className="pr-8 text-lg">"현실보다 더 달콤하고,</h1>
@@ -142,23 +142,48 @@ const Content1=({pageRef})=>{
 const Content2=({pageRef})=>{
   return(
     
-    <div ref={pageRef} className="pt-[280px] pr-6 pl-6 text-white text-justify text-sm">
+    <div ref={pageRef} className="pt-[35px] pr-6 pl-6 text-white font-thin text-center text-[15px] whitespace-pre-wrap">
       <h1>
-      창작집단 새벽의 첫 창작 뮤지컬 {"<용궁: 낙원의 미스테리>"}
-      (이하 용궁)는 밤에서 새벽으로 가는 과정을 그리듯, 아직 
-      확실하지 않지만 어렴풋이 보이는 근미래를 배경으로 한다.
+      창작집단 새벽의 첫 창작 뮤지컬 
+      <br/>
+      {"<용궁: 낙원의 미스테리>"}(이하 용궁)는 
+      <br/>
+      밤에서 새벽으로 가는 과정을 그리듯, 
+      <br/>
+      아직 확실하지 않지만 어렴풋이 보이는 
+      <br/>
+      근미래를 배경으로 한다.
+      
       <br/>
       <br/>
-      {"<용궁>"}은 현실과 구분하기 어려운 가상의 경험을 제공하는 VR게임을 소재로 하여, 극장이라는 또 다른 가상의 공간에 혼합현실을 형성한다. 게임 안과 밖, 과거와 현재를 오가는 미래의 용궁은 중층적인 시공간을 지속적으로 구현하고, 
-      이때 인물을 따라가며 겹쳐진 세계를 오가는 관객은 동등한 플레이어이자 탐험가가 된다.
+      
+      {"<용궁>"}은 현실과 구분하기 어려운 가상의 경험을 제공하는 
+      <br/>
+      VR게임을 소재로 하여, 극장이라는 또 다른 가상의 공간에 
+      <br/>
+      혼합현실을 형성한다. 게임 안과 밖, 과거와 현재를 오가는 
+      <br/>
+      미래의 용궁은 중층적인 시공간을 지속적으로 구현하고, 
+      <br/>
+      이때 인물을 따라가며 겹쳐진 세계를 오가는 관객은 
+      <br/>
+      동등한 플레이어이자 탐험가가 된다.
+      
       <br/>
       <br/>
 
-      배우와 관객이 모두 모험하는 게임 속 낙원은 익숙하고 친근하면서도 알 수 없는 신비를 품고 있다. 
-      {"<용궁>"}은 미지의 세계의 접근하는 여정을 미스터리 장르로 풀어내면서, 
-      그 속에서 선명하게 꿈틀거리는 인간의 감정과 욕망에 주목한다.배우와 관객이 모두 모험하는 게임 속 낙원은 익숙하고 친근하면서도 알 수 없는 신비를 품고 있다. 
-      {"<용궁>"}은 미지의 세계의 접근하는 여정을 미스터리 장르로 풀어내면서, 그 속에서 선명하게 꿈틀거리는 인간의 감정과 욕망에 주목한다.
-      배우와 관객이 모두 모험하는 게임 속 낙원은 익숙하고 친근배우와 관객이 모두 모험하는 게임 속 낙원은 익숙하고 친근하면서도 알 수 없는 신비를 품고 있다.
+      배우와 관객이 모두 모험하는 게임 속 낙원은 익숙하고 
+      <br/>
+      친근하면서도 알 수 없는 신비를 품고 있다. 
+      <br/>
+      {"<용궁>"}은 미지의 세계의 접근하는 여정을 
+      <br/>
+      미스터리 장르로 풀어내면서, 
+      <br/>
+      그 속에서 선명하게 꿈틀거리는 
+      <br/>
+      인간의 감정과 욕망에 주목한다.
+      <br/>
       <br/>
 
       </h1>
@@ -170,9 +195,9 @@ const Content3=({pageRef})=>{
   const [toggle, setToggle]=useState(true);
 
   return(
-    <div ref={pageRef} className="w-full min-h-full pt-[240px] flex flex-col items-center jusify-top  text-white min-h-[60vh]"
+    <div ref={pageRef} className="w-full pt-[66px] flex flex-col items-center jusify-top  text-white min-h-[60vh]"
     >
-      <div className='relative m-16 bg-[rgba(255,255,255,0.2)] w-[180px] h-[48px] rounded-full flex justify-evenly items-center'
+      <div className='relative bg-[rgba(255,255,255,0.2)] w-[180px] h-[48px] rounded-full flex justify-evenly items-center'
       onClick={()=>setToggle(!toggle)}
       >
         <div className={`absolute w-[88px] h-[40px] rounded-full transition-all ${toggle?'left-1 bg-[#F5EEB9]':'left-[88px] bg-[#60E4F1]'} `}style={{
@@ -191,11 +216,11 @@ const Content3=({pageRef})=>{
       </div>
 
       {toggle?
-      <div className="w-full h-[400px] bg-yellow-100">
+      <div className="w-full h-[400px] mt-10 bg-yellow-100">
 
       </div>
       :
-      <div className="w-full h-[400px] bg-green-100">
+      <div className="w-full h-[400px] mt-10 bg-green-100">
       </div>
       } 
     </div>
@@ -211,7 +236,9 @@ export function MusicalContainer({pageRef, ref1, ref2, ref3}){
   }}>
 
     <Content1 pageRef={ref1}/>
+    <WaveCenter/>
     <Content2 pageRef={ref2}/>
+    <WaveCenter flip={true}/>
     <Content3 pageRef={ref3}/>
 
     <TopButton pageRef={pageRef}/>

@@ -3,6 +3,7 @@ import {ScrollSection, ScrollContainer} from "components/ScrollSection";
 import {ParallaxElement, ParallaxContainer}  from "components/ParallaxElement";
 import { useSpring, animated } from 'react-spring'
 import { easings } from "@react-spring/web";
+import CenteredSection from "components/CenteredSection";
 
 function clampScroll(scroll, sectionIndex) {
   let s=scroll-sectionIndex;
@@ -21,7 +22,7 @@ export default function MainPage(props) {
   }
 
   function onEnterButtonClick(){
-    console.log('enter button clicked');
+    
   }
 
   useEffect(()=>{
@@ -50,6 +51,7 @@ export default function MainPage(props) {
   }}
     scrollTop ={scroll}
     >
+      <CenteredSection/>
     <div style={{ width: "100vw", height: '3500px', overflow: 'hidden'}}>
     <div  style={{ width: "100vw", height: '4000px', minHeight: '400vh',
     position: 'relative',
@@ -236,6 +238,7 @@ export default function MainPage(props) {
       <img src={`${process.env.PUBLIC_URL}/images/etc/castle_bg.png`} alt="office" style={{
         position: 'absolute',
         width: '100vw',
+        
         top: '3000px',
       }}/>
     </div>

@@ -183,8 +183,8 @@ export const Disc=()=>{
       setR(r+rotation)
     }}>next</div>
 
-    <WaveBottom1 className='absolute bottom-0 left-0' color='white'/>
-    <WaveBottom2 className='absolute bottom-0 left-0' color='white'/>
+    <WaveBottom1 className='absolute bottom-0 left-0 w-full' color='white'/>
+    <WaveBottom2 className='absolute bottom-0 left-0 w-full' color='white'/>
     </>
   )
 }

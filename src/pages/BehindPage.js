@@ -4,6 +4,8 @@ import IntroHeaderTab from "components/IntroHeaderTab";
 import {WaveTop2, WaveTop1} from "components/Wave";
 import { useEffect, useState } from "react";
 import { OrganizationChart } from "components/IntroContents";
+import { WaveBottom1, WaveBottom2 } from "components/Wave";
+import 'css/custom.css'
 
 
 const MakingProcess =()=>{
@@ -27,24 +29,70 @@ const MakingProcess =()=>{
     )
   }
   return(
-    <div className="w-full flex flex-row items-center justify-evenly relative mt-14">
-      <Button name="소품" toggled={index===0} onClick={()=>setIndex(0)}/>
-      <Button name="의상" toggled={index===1} onClick={()=>setIndex(1)}/>
-      <Button name="조명" toggled={index===2} onClick={()=>setIndex(2)}/>
-      <Button name="무대" toggled={index===3} onClick={()=>setIndex(3)}/>
+    <div className="fade-in">
+
+      <div className="w-full flex flex-row items-center justify-evenly relative mt-14">
+        <Button name="소품" toggled={index===0} onClick={()=>setIndex(0)}/>
+        <Button name="의상" toggled={index===1} onClick={()=>setIndex(1)}/>
+        <Button name="조명" toggled={index===2} onClick={()=>setIndex(2)}/>
+        <Button name="무대" toggled={index===3} onClick={()=>setIndex(3)}/>
+      </div>
+
+    <div className="w-full flex flex-col items-center justify-center relative">
+      <div className="w-[340px] h-[300px] mt-12 bg-white" >
+        image
+      </div>
+      <div className="w-[340px] mt-12 text-white text-justify font-thin">
+      사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기. 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기.
+
+      </div>
+    </div>
+    </div>
+  )
+}
+
+function PracticeProcess(){
+  return(
+    <div className="w-full flex items-center justify-center relative fade-in">
+      <div>
+
+      <div className="w-[340px] h-[300px] mt-12 bg-white" >
+        image
+      </div>
+      <div className="w-[340px] mt-12 text-white text-justify font-thin">
+      사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기. 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기.
+
+      </div>
+      <div className="w-[340px] h-[300px] mt-12 bg-white" >
+        image
+      </div>
+      <div className="w-[340px] mt-12 text-white text-justify font-thin">
+      사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기. 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기.
+
+      </div>
+      <div className="w-[340px] h-[300px] mt-12 bg-white" >
+        image
+      </div>
+      <div className="w-[340px] mt-12 text-white text-justify font-thin">
+      사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기. 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기.
+
+      </div>
+      </div>
+
     </div>
   )
 }
 
 
 export default function BehindPage() {
-  const [toggle, setToggle]=useState(true);
+  const [toggled, setToggle]=useState(true);
 
   return (
     <div 
     style={{
       width: '100vw',
-      height: '100vh',
+      minHeight:'100vh',
+      paddingBottom: '100px',
       overflow: 'scroll',
       background: 'var(--unnamed, linear-gradient(135deg, #4DEDED 0%, #A9C1FF 72.40%, #8B91FF 100%))',
       position: 'relative',
@@ -60,27 +108,31 @@ export default function BehindPage() {
 
         <div className="relative flex flex-col items-center justify-center w-full">
         <div className='relative mt-16 bg-[rgba(255,255,255,1)] w-[180px] h-[48px] rounded-full flex justify-evenly items-center'
-      onClick={()=>setToggle(!toggle)}
+      onClick={()=>setToggle(!toggled)}
       >
-        <div className={`absolute w-[88px] h-[40px] rounded-full transition-all ${toggle?'left-1 bg-[#F5EEB9]':'left-[88px] bg-[#F5EEB9]'} `}style={{
+        <div className={`absolute w-[88px] h-[40px] rounded-full transition-all ${toggled?'left-1 bg-[#F5EEB9]':'left-[88px] bg-[#F5EEB9]'} `}style={{
           filter:'drop-shadow(0 1px 3px rgba(0,0,0,0.1))',
         }}/>
         <div className='w-[80px] h-[40px] flex justify-center items-center z-[1]'style={{
-          color: toggle?'#fff':'#A3A3A3',
-          filter: toggle?'drop-shadow(0 0 6px rgba(0,0,0,0.4))':'',
+          color: toggled?'#fff':'#A3A3A3',
+          filter: toggled?'drop-shadow(0 0 6px rgba(0,0,0,0.4))':'',
         }}>
           제작 과정
         </div>
         <div className='w-[80px] h-[40px] flex justify-center items-center z-[1] 'style={{
-          color: !toggle?'#fff':'#A3A3A3',
-          filter: !toggle?'drop-shadow(0 0 6px rgba(0,0,0,0.4))':'',
+          color: !toggled?'#fff':'#A3A3A3',
+          filter: !toggled?'drop-shadow(0 0 6px rgba(0,0,0,0.4))':'',
         }}>
           연습 과정
         </div>
       </div>
       </div>
-        <MakingProcess/>
+        {toggled?<MakingProcess/>:<PracticeProcess/>}
       </div>
+
+      
+    <WaveBottom1 className='absolute bottom-0 left-0 w-full' color='white'/>
+    <WaveBottom2 className='absolute bottom-0 left-0 w-full' color='white'/>
     </div>
   );
 }
