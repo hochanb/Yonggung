@@ -48,7 +48,7 @@ export default function ActorPage({index}){
         position: 'relative',
       }}>
         <div className="w-full h-[400px] flex justify-center items-center" style={{
-          background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.00) 63.76%, rgba(255, 255, 255, 0.72) 84.93%, #FFF 100%)'
+          background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.00) 63.76%, rgba(255, 255, 255, 0.72) 84.93%, rgba(255,255,255,1) 95% , #FFF 100%)'
         }}/>
         <div className="absolute bottom-0 w-full h-[85px] flex justify-center items-center bg-white whitespace-pre-wrap"
         style={{

@@ -20,7 +20,7 @@ function ProfileCell({style, name="배우명", role="배역명", src='images/mem
         fontSize: '20px',
       }}>{name}</span>
       { useDetail && <span className="text-white font-[20px]"> | </span> }
-      {useDetail && <span className="text-white font-normal text-center text-[15px]" >{role}</span>
+      {useDetail && <span className="text-white font-normal text-center text-[12px]" >{role}</span>
       }
     </div>
 

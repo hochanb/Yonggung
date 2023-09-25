@@ -1,7 +1,7 @@
 //for test
 import React, { Component } from 'react';
 import {Routes , Route, Link} from 'react-router-dom';
-import MainPage from './MainPage';
+import MainPage2 from './MainPage';
 import IntroPage from './IntroPage';
 import TeamPage from './TeamPage';
 import MusicalPage from './MusicalPage';

@@ -4,7 +4,8 @@ import 'css/custom.css'
 import {TeamsData} from 'MemberInfo'
 import { useEffect } from "react"
 import { WaveCenter } from "./Wave"
-
+import { useSpring, animated } from "react-spring"
+import { Link } from "react-router-dom"
 const tabIconSize=50;
 
 const TeamButton=({selected, onClick, iconPath, offsetY=0})=>{
@@ -114,7 +115,9 @@ const MemberProfileImage=({fileName, scale=1, head=false})=>{
       background: head?'':'rgba(255,255,255,0.1)'
     }}>
       <div className="w-full h-full p-[7px] rounded-full bg-[rgba(255,255,255,0.12)]">
-        <img className="w-full h-full rounded-full border-white border-[2px] bg-white" alt="x"
+        <img className="w-full h-full rounded-full border-white border-[2px] bg-white" alt="x" style={{
+          objectFit: 'cover',
+        }}
           src={`${process.env.PUBLIC_URL}/images/members/${fileName}`} 
         />
 
@@ -138,9 +141,12 @@ const MemberProfileCell=({memberData, toggled=false, onClick, position, index})=
         {toggled?`${memberData.Name} ▲`: `${memberData.Name} ▼`}
       </div>
 
-      <div className="w-auto h-auto mt-2 pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[10px]">
-          {memberData.Insta}
-      </div>
+      <Link className="w-auto h-auto mt-2 pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[10px]"
+        to={`https://www.instagram.com/${memberData.Insta}`}
+        target="_blank"
+      >
+          {'@' + memberData.Insta}
+      </Link>
       
       {toggled?
       <>
@@ -151,7 +157,7 @@ const MemberProfileCell=({memberData, toggled=false, onClick, position, index})=
           )})}
 
       </div>
-      <h2 className="text-white text-[14px] pl-8 pr-8 pb-12 font-light">
+      <h2 className="text-white text-[14px] pl-8 pr-8 pb-12 font-light whitespace-pre-wrap">
         {memberData.Words}
       </h2>
 
@@ -197,8 +203,10 @@ const CreatorTeamTab=({index=0, setIndex})=>{
   return(
     <div className="relative flex flex-col items-center justify-center w-full">
     <div className='relative mt-16 bg-[rgba(255,255,255,0.2)] w-auto h-[48px] rounded-full flex justify-evenly items-center'>
-    <div className={`absolute w-[88px] h-[40px] rounded-full transition-all left-[${index===0?16:index===1?136:256}px] bg-[#F5EEB9] `} style={{
+    <animated.div className={`absolute w-[88px] h-[40px] rounded-full transition-all  bg-[#F5EEB9] `} style={{
       filter:'drop-shadow(0 1px 3px rgba(0,0,0,0.1))',
+      left:`[${index===0?16:index===1?136:256}px]`,
+      transition: 'all 0.3s ease-in-out',
     }}/>
     <div className='w-[120px] h-[40px] flex justify-center items-center z-[1]'
     onClick={()=>setIndex(0)}
@@ -299,7 +307,7 @@ export const TeamDetails=({index})=>{
         <CreatorTeamTab index={creatorTeamIndex} setIndex={setCreatorTeamIndex}/>
       }
 
-      <WaveCenter/>
+      <WaveCenter style={{marginTop:33}}/>
 
       <div key={creatorTeamIndex} className="w-full flex flex-col justify-center items-center relative fade-in">
         <div className="w-[317px] h-[110px] relative blur-[7.5px] opacity-40">
@@ -320,15 +328,20 @@ export const TeamDetails=({index})=>{
         <h1 className="text-white text-2xl m-2" style={{textShadow: '0px 0px 15px rgba(97, 129, 247, 0.60)'}}>
           {teamData.TeamMembers[0].Name}
         </h1>
-        <div className="w-auto h-auto pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[14px] font-normal">
-          {teamData.TeamMembers[0].Insta}
-        </div>
+        {teamData.TeamMembers[0].Insta.length!==0 && 
+        <Link className="w-auto h-auto pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[14px] font-normal"
+          to={`https://www.instagram.com/${teamData.TeamMembers[0].Insta}`}
+          target="_blank"
+        >
+          {'@'+teamData.TeamMembers[0].Insta}
+        </Link>
+        }
 
-        <h2 className="text-white text-[15px] font-light pl-8 pr-8 mt-8 text-justify"
+        <h2 className="text-white text-[15px] font-light pl-8 pr-8 mt-8 text-justify whitespace-pre-wrap"
         style={headDetailOn? hideHeadDetail : showHeadDetail}>
           {teamData.TeamMembers[0].Words}
       </h2>
-      {
+      {teamData.TeamMembers[0].Words.length!==0 &&(
         headDetailOn?
         <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none"
         onClick={()=>setHeadDetailOn(false)}>
@@ -339,7 +352,8 @@ export const TeamDetails=({index})=>{
       onClick={()=>setHeadDetailOn(true)}>
         <path d="M6.72069 0.740201C7.28086 -0.091437 8.50483 -0.0914382 9.065 0.7402L14.9766 9.51657C15.6089 10.4553 14.9362 11.7194 13.8044 11.7194H1.9813C0.849476 11.7194 0.176836 10.4553 0.809141 9.51657L6.72069 0.740201Z" fill="white"/>
       </svg>
-      }
+      )
+    }
 
       <div className="w-full grid grid-cols-2 justify-between">
       {

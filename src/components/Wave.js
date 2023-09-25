@@ -38,9 +38,12 @@ export function WaveBottom2({color='white', className=''}){
   )
 }
 
-export function WaveCenter({flip=false}){
+export function WaveCenter({flip=false, style}){
   return(
-    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="390" height="37" viewBox="0 0 390 37" fill="none" className="mt-[33px] mb-0 w-full">
+    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="390" height="37" viewBox="0 0 390 37" fill="none" style={{
+      ...style,
+      width: '100%',
+    }}>
       <g transform={flip?"scale(-1,1) translate(-390,0)":""}>
         <path fillRule="evenodd" clipRule="evenodd" d="M390 1.17341L383.5 3.19485C377 5.21628 364 9.25914 351 9.25914C338 9.25914 325 5.21627 312 2.7069C299 0.197538 286 -0.778327 273 0.685467C260 2.21897 247 6.19212 234 7.72562C221 9.25912 208 8.21355 195 6.19212C182 4.24039 169 1.17339 156 1.17338C143 1.17338 130 4.24038 117 5.70418C104 7.23768 91 7.23767 78 9.2591C65 11.2108 52 15.2537 39 16.7872C26 18.251 13 17.2751 6.5 16.7872L-9.86871e-07 16.2295L-2.24986e-06 37L6.5 37C13 37 26 37 39 37C52 37 65 37 78 37C91 37 104 37 117 37C130 37 143 37 156 37.0001C169 37.0001 182 37.0001 195 37.0001C208 37.0001 221 37.0001 234 37.0001C247 37.0001 260 37.0001 273 37.0001C286 37.0001 299 37.0001 312 37.0001C325 37.0001 338 37.0001 351 37.0001C364 37.0001 377 37.0001 383.5 37.0001L390 37.0001L390 1.17341Z" fill="url(#paint0_linear_339_668)" fillOpacity="0.31"/>
       </g>
