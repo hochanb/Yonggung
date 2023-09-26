@@ -11,6 +11,7 @@ import CastPage from 'pages/CastPage';
 import ActorPage from 'pages/ActorPage';
 import { ActorData } from 'MemberInfo';
 import BehindPage from 'pages/BehindPage';
+import MapPage from 'pages/Map';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path='/number' element={<NumberPage/>}/>
         <Route path='/cast' element={<CastPage/>}/>
         <Route path='/behind' element={<BehindPage/>}/>
+        <Route path='/map' element={<MapPage/>}/>
         {ActorData.map((actor, index)=>
             <Route key={index} path={`/cast/${index}`} element={<ActorPage index={index}/>}/>
         )}

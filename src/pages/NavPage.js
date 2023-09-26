@@ -29,6 +29,7 @@ export default function  NavPage () {
       <NavButton name='number' link='/number'/>
       <NavButton name='cast' link='/cast'/>
       <NavButton name='behind' link='/behind'/>
+      <NavButton name='map' link='/map'/>
     </div>
     </>
     

@@ -3,6 +3,8 @@ import { WaveTop2, WaveTop1, WaveCenter } from "./Wave"
 import TopButton from "./TopButton";
 import { useState } from "react";
 import { BookIconPath, HexagonPath, ProfileIconPath, SegmentedCirclePath } from "svgpaths"
+import 'css/custom.css'
+
 
 function HeaderItem({iconPath, selected=false, onClick, text="none"}){
   return(
@@ -216,12 +218,12 @@ const Content3=({pageRef})=>{
       </div>
 
       {toggle?
-      <div className="w-full mt-10 ">
+      <div className="w-full mt-10 fade-in" key='1'>
         <img className="w-full h-full object-contain" src={`${process.env.PUBLIC_URL}/images/members/배우팀/actors_real.png`} alt=''/>
         <img className="w-full h-full object-contain" src={`${process.env.PUBLIC_URL}/images/members/배우팀/현실조직도.png`} alt=''/>
       </div>
       :
-      <div className="w-full mt-10 ">
+      <div className="w-full mt-10 fade-in" key='2'>
         <img className="w-full h-full object-contain" src={`${process.env.PUBLIC_URL}/images/members/배우팀/actors_game.png`} alt=''/>
         <img className="w-full h-full object-contain" src={`${process.env.PUBLIC_URL}/images/members/배우팀/용궁조직도.png`} alt=''/>
 
