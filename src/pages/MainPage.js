@@ -80,33 +80,76 @@ export function MainPage2(props) {
   );
 }
 
+
 export function MainPage(props) {
   const [scrollable, setScrollable] = useState(false);
   const [scrollTo, setScrollTo] = useState(0);
   const scrollRef = useRef(null);
+  const [sectionIndex, setSectionIndex] = useState(0);
+  const [isMoving, setIsMoving] = useState(true);
+
+  const sectionTop=[
+    0,
+    1000,
+    2100,
+    2906
+  ]
 
   function onStartButtonClick() {
     setScrollable(true);
-    setScrollTo(1000);
+    setIsMoving(true);
+    setSectionIndex(1);
+    setScrollTo(sectionTop[1]);
+    console.log(scrollTo);
   }
 
   function onEnterButtonClick() {}
 
+
+  const handleScroll = (e) => {
+    e.preventDefault();
+    const scr=scrollRef.current.scrollTop;
+
+    console.log(scrollRef.current.scrollTop, scrollTo, isMoving)
+    if(isMoving){
+      if(scr <= scrollTo +3 && scr >= scrollTo -3){
+        setIsMoving(false);
+        console.log(isMoving);
+      }
+      console.log('moving');
+      return;
+    }
+    else{
+
+    const si=sectionIndex;
+    const dY = sectionTop[si] - scr;
+    if(dY<-3 && si <4 ){
+      setSectionIndex(si+1);
+      setIsMoving(true);
+      setScrollTo(scr)
+      setScrollTo(sectionTop[si+1]);
+      console.log('down');
+    }
+    else if(dY>3 && si > 0){
+      setSectionIndex(si-1);
+      setIsMoving(true);
+      setScrollTo(scr)
+      setScrollTo(sectionTop[si-1]);
+      console.log('up');
+    }
+    else{
+      setScrollTo(scr)
+    }
+  }
+
+    console.log(scr);
+  };
+
   useEffect(() => {
-    const handleScroll = (e) => {
-      // get wheel amount, and update index with rotation.
-      //change one index per one wheel
-      //log scroll number
-      e.preventDefault();
-      console.log(scrollRef.current.scrollTop);
-    };
     scrollRef.current.addEventListener("scroll", handleScroll);
-    scrollRef.current.addEventListener("wheel", () => {
-      console.log("wheel");
-    });
     return () =>
       scrollRef?.current?.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, );
 
   const { scroll } = useSpring({
     scroll: scrollTo,
