@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { OrganizationChart } from "components/IntroContents";
 import { WaveBottom1, WaveBottom2 } from "components/Wave";
 import 'css/custom.css'
+import { CostumeTab, CreditTab, LightingTab, Practicing, StageTab } from "components/BehindContents";
 
 
 const MakingProcess =()=>{
@@ -32,20 +33,17 @@ const MakingProcess =()=>{
     <div className="fade-in">
 
       <div className="w-full flex flex-row items-center justify-evenly relative mt-14">
-        <Button name="소품" toggled={index===0} onClick={()=>setIndex(0)}/>
+        <Button name="크레딧" toggled={index===0} onClick={()=>setIndex(0)}/>
         <Button name="의상" toggled={index===1} onClick={()=>setIndex(1)}/>
         <Button name="조명" toggled={index===2} onClick={()=>setIndex(2)}/>
         <Button name="무대" toggled={index===3} onClick={()=>setIndex(3)}/>
       </div>
 
     <div className="w-full flex flex-col items-center justify-center relative">
-      <div className="w-[340px] h-[300px] mt-12 bg-white" >
-        image
-      </div>
-      <div className="w-[340px] mt-12 text-white text-justify font-thin">
-      사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기. 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기.
-
-      </div>
+      {index===0 && <CreditTab />}
+      {index===1 && <CostumeTab />}
+      {index===2 && <LightingTab />}
+      {index===3 && <StageTab />}
     </div>
     </div>
   )
@@ -54,32 +52,10 @@ const MakingProcess =()=>{
 function PracticeProcess(){
   return(
     <div className="w-full flex items-center justify-center relative fade-in">
-      <div>
+      <Practicing/>
+      
 
-      <div className="w-[340px] h-[300px] mt-12 bg-white" >
-        image
-      </div>
-      <div className="w-[340px] mt-12 text-white text-justify font-thin">
-      사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기. 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기.
-
-      </div>
-      <div className="w-[340px] h-[300px] mt-12 bg-white" >
-        image
-      </div>
-      <div className="w-[340px] mt-12 text-white text-justify font-thin">
-      사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기. 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기.
-
-      </div>
-      <div className="w-[340px] h-[300px] mt-12 bg-white" >
-        image
-      </div>
-      <div className="w-[340px] mt-12 text-white text-justify font-thin">
-      사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기. 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기 사람과 구별할 수 없는 인공지능 캐릭터가 존재하는 게임, 프로젝트 용궁. 이 게임을 만든 사람들은 죽거나 실종된다. 가상현실 게임을 둘러싼 미스테리, 그리고 사랑에 관한 이야기 리고 사랑에 관한 이야기.
-
-      </div>
-      </div>
-
-    </div>
+  </div>
   )
 }
 
@@ -101,9 +77,9 @@ export default function BehindPage() {
         <h1 className="text-2xl text-center font-coralblue">용궁 비하인드</h1>
       </Header>
       <div className="relative">
-        <div className="absolute top-0 z-10">
+        <div className="absolute top-0 z-10 w-full">
           <WaveTop1 color="white" className="absolute top-0 w-full"/>
-          <WaveTop2 className="absolute top-0"/>
+          <WaveTop2 className="absolute top-0 w-full"/>
         </div>
 
         <div className="relative flex flex-col items-center justify-center w-full">

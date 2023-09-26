@@ -195,7 +195,7 @@ const Content3=({pageRef})=>{
   const [toggle, setToggle]=useState(true);
 
   return(
-    <div ref={pageRef} className="w-full pt-[66px] flex flex-col items-center jusify-top  text-white min-h-[60vh]"
+    <div ref={pageRef} className="w-full pt-[66px] pb-20 flex flex-col items-center jusify-top  text-white min-h-[60vh]"
     >
       <div className='relative bg-[rgba(255,255,255,0.2)] w-[180px] h-[48px] rounded-full flex justify-evenly items-center'
       onClick={()=>setToggle(!toggle)}
@@ -216,11 +216,15 @@ const Content3=({pageRef})=>{
       </div>
 
       {toggle?
-      <div className="w-full h-[400px] mt-10 bg-yellow-100">
-
+      <div className="w-full mt-10 ">
+        <img className="w-full h-full object-contain" src={`${process.env.PUBLIC_URL}/images/members/배우팀/actors_real.png`} alt=''/>
+        <img className="w-full h-full object-contain" src={`${process.env.PUBLIC_URL}/images/members/배우팀/현실조직도.png`} alt=''/>
       </div>
       :
-      <div className="w-full h-[400px] mt-10 bg-green-100">
+      <div className="w-full mt-10 ">
+        <img className="w-full h-full object-contain" src={`${process.env.PUBLIC_URL}/images/members/배우팀/actors_game.png`} alt=''/>
+        <img className="w-full h-full object-contain" src={`${process.env.PUBLIC_URL}/images/members/배우팀/용궁조직도.png`} alt=''/>
+
       </div>
       } 
     </div>

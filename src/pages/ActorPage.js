@@ -2,6 +2,25 @@ import { useState } from "react";
 import { CastHeader } from "./CastPage";
 import { ActorData } from "MemberInfo";
 
+function QnA({className, qna, textLeft=false}){
+  return(
+    <div className={className+" w-full flex justify-center mt-12"}>
+      <div className="w-[300px] text-white font-light" style={{
+        lineHeight: '20px',
+        fontSize: '16px',
+      }}>
+        <div className="text-[20px] font-bold mb-4">Q</div>
+        <div className="text-[20px] mb-4" style={{fontFamily:'iceJaram'}}>{qna.Q}</div>
+        <div className="text-[20px] font-bold mt-12 mb-4">A</div>
+        <div className={`text-[16px] mb-4 font-light whitespace-pre-wrap ${textLeft?'text-justify':'text-center'}`
+        } style={{lineHeight: '24px'}}
+        >{qna.A}</div>
+      </div>
+    </div>
+  )
+}
+
+
 export default function ActorPage({index}){
   const [actor]=useState(ActorData[index]);
 
@@ -26,7 +45,7 @@ export default function ActorPage({index}){
         fontSize: '41px',
       }}>{actor.Name}</span>
       <span className="text-white text-[41px]"> | </span>
-      <span className="text-white font-normal text-center text-[30px]" >{actor.Role}</span>
+      <span className="text-white font-normal text-center text-[24px]" >{actor.Role}</span>
       
     </div>
     <div className="w-full flex items-center justify-center relative">
@@ -65,10 +84,16 @@ export default function ActorPage({index}){
       <div className="w-[300px] text-white font-light" style={{
         lineHeight: '20px',
         fontSize: '16px',
+        marginBottom:'136px',
       }}>
         {actor.Description}
       </div>
     </div>
+    
+    <div className="text-[41px] text-white mb-4">INTERVIEW</div>
+    <QnA qna={actor.Questions[0]} textLeft={true}/>
+    <div className="text-[24px] mb-4 text-white mt-12 underline"  style={{fontFamily:'iceJaram'}}>"지금부터는 극 속 인물의 입장에서 답해주세요!"</div>
+      {actor.Questions.slice(1).map((qna, index)=><QnA key={index} qna={qna}/>)}
     </div>
   )
 }

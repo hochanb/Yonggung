@@ -3,6 +3,8 @@ import Header from "components/Header";
 import { MusicalContainer, MusicalHeader } from "components/MusicalContents";
 import { useEffect } from "react";
 
+const  topOffset=(n) => n === 0 ? 0 : n === 1 ? -300 : -200;
+
 export default function MusicalPage(){
   const [section, setSection]=useState(0);  //current section number
   const contentRefs=[useRef(null), useRef(null), useRef(null)];
@@ -10,18 +12,19 @@ export default function MusicalPage(){
 
   const onSectionButton=(number)=>{
     // setSection(number);
-    contentRefs[number].current?.scrollIntoView({ behavior: 'smooth' });
+    pageRef?.current?.scrollTo({behavior: 'smooth', top: contentRefs[number].current?.offsetTop + topOffset(number)});
+    // contentRefs[number].current?.scrollIntoView({ behavior: 'smooth', offsetTop: 0});
   }
 
   function onScrollContainer(){
-    console.log(
-      `page: ${pageRef?.current?.scrollTop},
-      section1: ${contentRefs[0]?.current?.offsetTop},
-      section2: ${contentRefs[1]?.current?.offsetTop}
-      section3: ${contentRefs[2]?.current?.offsetTop}`);
-    if(pageRef.current?.scrollTop<contentRefs[1].current?.offsetTop){
+    // console.log(
+    //   `page: ${pageRef?.current?.scrollTop},
+    //   section1: ${contentRefs[0]?.current?.offsetTop},
+    //   section2: ${contentRefs[1]?.current?.offsetTop}
+    //   section3: ${contentRefs[2]?.current?.offsetTop}`);
+    if(pageRef.current?.scrollTop<contentRefs[1].current?.offsetTop + topOffset(1)){
       setSection(0);
-    }else if(pageRef.current?.scrollTop<contentRefs[2].current?.offsetTop){
+    }else if(pageRef.current?.scrollTop<contentRefs[2].current?.offsetTop + topOffset(2)){
       setSection(1);
     }else{
       setSection(2);

@@ -1,7 +1,8 @@
 import { ActorData, DancerData } from "MemberInfo"
 import { Link } from "react-router-dom"
+import { useState } from "react"
 
-function ProfileCell({style, name="배우명", role="배역명", src='images/members/조유리.jpg', index=1, useDetail=true}){
+function ProfileCell({style, name="배우명", role="배역명", src='images/members/조유리.jpg', index=1, useDetail=true, toggled=false, onClick}){
     
   const content = (
   
@@ -9,16 +10,19 @@ function ProfileCell({style, name="배우명", role="배역명", src='images/mem
       ...style,
       width:150,
       height:200,
-      border: '3px solid rgba(255, 255, 255, 0.70)',
+      border: '3px solid #f0f0f0',
       boxShadow: '0px 4px 10px 0px rgba(0, 0, 0, 0.25) inset',
       position: 'relative',
       background:`url(${process.env.PUBLIC_URL}/images/members/${src}) no-repeat center center / cover`,
-    }}>
+    }}
+    onClick={!useDetail?onClick:()=>{}}
+    >
     <div className="w-[144px] h-[32px] absolute bottom-0 bg-[#00D3EE]">
       <span className="text-white font-bold text-center" style={{
         lineHeight: '32px',
         fontSize: '20px',
-      }}>{name}</span>
+      }}>{name}</span> 
+      <span className="text-white">{(!useDetail?(toggled?' ▲':' ▼'):'')}</span>
       { useDetail && <span className="text-white font-[20px]"> | </span> }
       {useDetail && <span className="text-white font-normal text-center text-[12px]" >{role}</span>
       }
@@ -83,8 +87,36 @@ export const CastHeader = () => {
   )
 }
 
+function DancerToggle({memberData, toggled=false}){
+  return(
+    <div style={{
+      maxHeight: toggled?'500px':'0px',
+      transition: 'all 0.5s ease-in-out',
+    }}>
+    {memberData?.Insta && <Link className="w-auto h-auto mt-2 mb-8 pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[10px]"
+      to={`https://www.instagram.com/${memberData?.Insta}`}
+      target="_blank"
+    >
+        {'@' + memberData?.Insta}
+    </Link>}
+    
+    <h2 className="text-white text-[14px] mt-4 pl-8 pr-8 pb-12 font-light whitespace-pre-wrap">
+      {memberData?.Words}
+    </h2>
+    </div>
+    )
+}
+
 export default function CastPage(){
 
+  const [dancerToggleIndex, setDancerToggleIndex] = useState(-1);
+
+  function toggle(index){
+    if(dancerToggleIndex===index)
+      setDancerToggleIndex(-1);
+    else
+      setDancerToggleIndex(index);
+  }
 
   return (
     <div 
@@ -153,12 +185,13 @@ export default function CastPage(){
 
       <div className="w-full flex flex-col justify-center mt-10 gap-y-6">
       <div className="w-full flex items-center justify-center gap-4" >
-        <ProfileCell name={DancerData[0].Name} src={DancerData[0].Image} index={0} useDetail={false}/>
-        <ProfileCell name={DancerData[1].Name} src={DancerData[1].Image} index={1} useDetail={false}/>
+        <ProfileCell name={DancerData[0].Name} src={DancerData[0].Image} index={0} useDetail={false} toggled={dancerToggleIndex===0} onClick={()=>toggle(0)}/>
+        <ProfileCell name={DancerData[1].Name} src={DancerData[1].Image} index={1} useDetail={false} toggled={dancerToggleIndex===1} onClick={()=>toggle(1)}/>
       </div>      
       <div className="w-full flex items-center justify-center gap-4" >
-        <ProfileCell name={DancerData[2].Name} src={DancerData[2].Image} index={2} useDetail={false}/>
+        <ProfileCell name={DancerData[2].Name} src={DancerData[2].Image} index={2} useDetail={false} toggled={dancerToggleIndex===2} onClick={()=>toggle(2)}/>
       </div>
+      <DancerToggle memberData={dancerToggleIndex!==-1 ? DancerData[dancerToggleIndex]:null} toggled={dancerToggleIndex===2}/>
       </div>
 
     </div>

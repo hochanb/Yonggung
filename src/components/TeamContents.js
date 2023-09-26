@@ -262,7 +262,7 @@ export const TeamDetails=({index})=>{
   }
   const showHeadDetail={
     transition: 'all 0.5s ease-in-out',
-    maxHeight: '500px',
+    maxHeight: '800px',
     overflow: 'hidden',
   }
 
