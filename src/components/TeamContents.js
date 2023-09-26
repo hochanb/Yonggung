@@ -47,7 +47,7 @@ const TeamButton=({selected, onClick, iconPath, offsetY=0})=>{
 
 export const TeamHeader=({index=0,setIndex})=>{
   return(
-    <div className="w-full h-[48px] relative flex justify-evenly pl-4 pr-4">
+    <div className="w-full h-[48px] relative flex justify-evenly mt-8 pl-4 pr-4">
       {/* <svg xmlns="http://www.w3.org/2000/svg" width="14" height="40" viewBox="0 0 14 22" fill="none">
           <path d="M13.2123 20.661C14.1449 19.8795 14.1457 18.4453 13.2139 17.6628L6.93418 12.3887C5.98253 11.5894 5.98253 10.1249 6.93418 9.32563L13.2139 4.05148C14.1457 3.26895 14.1449 1.83483 13.2123 1.05329C12.4852 0.44394 11.4257 0.44394 10.6986 1.05329L0.82915 9.32425C-0.124693 10.1236 -0.124694 11.5907 0.829149 12.39L10.6986 20.661C11.4257 21.2703 12.4852 21.2703 13.2123 20.661Z" fill="white"/>
       </svg>   */}
@@ -141,12 +141,16 @@ const MemberProfileCell=({memberData, toggled=false, onClick, position, index})=
         {toggled?`${memberData.Name} ▲`: `${memberData.Name} ▼`}
       </div>
 
-      <Link className="w-auto h-auto mt-2 pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[10px]"
-        to={`https://www.instagram.com/${memberData.Insta}`}
-        target="_blank"
-      >
-          {'@' + memberData.Insta}
-      </Link>
+      {memberData.Insta ?
+        <Link className="w-auto h-auto mt-2 pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[10px]"
+          to={`https://www.instagram.com/${memberData.Insta}`}
+          target="_blank"
+        >
+            {'@' + memberData.Insta}
+        </Link>
+        :
+        <div className="h-[23px]"/>
+      }
       
       {toggled?
       <>
@@ -205,7 +209,7 @@ const CreatorTeamTab=({index=0, setIndex})=>{
     <div className='relative mt-16 bg-[rgba(255,255,255,0.2)] w-auto h-[48px] rounded-full flex justify-evenly items-center'>
     <animated.div className={`absolute w-[88px] h-[40px] rounded-full transition-all  bg-[#F5EEB9] `} style={{
       filter:'drop-shadow(0 1px 3px rgba(0,0,0,0.1))',
-      left:`[${index===0?16:index===1?136:256}px]`,
+      left:`${index===0?16:index===1?136:256}px`,
       transition: 'all 0.3s ease-in-out',
     }}/>
     <div className='w-[120px] h-[40px] flex justify-center items-center z-[1]'
@@ -239,7 +243,8 @@ const CreatorTeamTab=({index=0, setIndex})=>{
 
 
 export const TeamDetails=({index})=>{
-  const [headDetailOn, setHeadDetailOn]=useState(true);
+  const [headDetailOn1, setHeadDetailOn1]=useState(true);
+  const [headDetailOn2, setHeadDetailOn2]=useState(true);
   const [toggledIndex, setToggledIndex]=useState(-1);
   const [creatorTeamIndex, setCreatorTeamIndex]=useState(0);
   const [teamData, setTeamData] = useState(TeamsData[0].CreatorTeams[0]);
@@ -317,13 +322,11 @@ export const TeamDetails=({index})=>{
               {bgIcon(index)}
           </svg>
         </div>
-
-        
         
         <MemberProfileImage fileName={teamData.TeamMembers[0].Image} scale={2.4} head={true}/>
         
         <h2 className="text-white text-xl mt-16" style={{textShadow: '0px 0px 15px rgba(97, 129, 247, 0.60)'}}>
-          {teamData.TeamHead}
+          {teamData.TeamMembers[0].Works[0]}
         </h2>
         <h1 className="text-white text-2xl m-2" style={{textShadow: '0px 0px 15px rgba(97, 129, 247, 0.60)'}}>
           {teamData.TeamMembers[0].Name}
@@ -338,28 +341,80 @@ export const TeamDetails=({index})=>{
         }
 
         <h2 className="text-white text-[15px] font-light pl-8 pr-8 mt-8 text-justify whitespace-pre-wrap"
-        style={headDetailOn? hideHeadDetail : showHeadDetail}>
+        style={headDetailOn1? hideHeadDetail : showHeadDetail}>
           {teamData.TeamMembers[0].Words}
       </h2>
       {teamData.TeamMembers[0].Words.length!==0 &&(
-        headDetailOn?
+        headDetailOn1?
         <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none"
-        onClick={()=>setHeadDetailOn(false)}>
+        style={{marginBottom: '4rem'}}
+        onClick={()=>setHeadDetailOn1(false)}>
         <path d="M19.1484 9.7002C19.1484 10.3239 19.3962 10.922 19.8372 11.363C20.2782 11.804 20.8763 12.0518 21.5 12.0518C22.1237 12.0518 22.7218 11.804 23.1628 11.363C23.6038 10.922 23.8516 10.3239 23.8516 9.7002C23.8516 9.07652 23.6038 8.47839 23.1628 8.03739C22.7218 7.59639 22.1237 7.34863 21.5 7.34863C20.8763 7.34863 20.2782 7.59639 19.8372 8.03739C19.3962 8.47839 19.1484 9.07652 19.1484 9.7002ZM19.1484 21.458C19.1484 22.0817 19.3962 22.6798 19.8372 23.1208C20.2782 23.5618 20.8763 23.8096 21.5 23.8096C22.1237 23.8096 22.7218 23.5618 23.1628 23.1208C23.6038 22.6798 23.8516 22.0817 23.8516 21.458C23.8516 20.8343 23.6038 20.2362 23.1628 19.7952C22.7218 19.3542 22.1237 19.1064 21.5 19.1064C20.8763 19.1064 20.2782 19.3542 19.8372 19.7952C19.3962 20.2362 19.1484 20.8343 19.1484 21.458ZM19.1484 33.2158C19.1484 33.8395 19.3962 34.4376 19.8372 34.8786C20.2782 35.3196 20.8763 35.5674 21.5 35.5674C22.1237 35.5674 22.7218 35.3196 23.1628 34.8786C23.6038 34.4376 23.8516 33.8395 23.8516 33.2158C23.8516 32.5921 23.6038 31.994 23.1628 31.553C22.7218 31.112 22.1237 30.8643 21.5 30.8643C20.8763 30.8643 20.2782 31.112 19.8372 31.553C19.3962 31.994 19.1484 32.5921 19.1484 33.2158Z" fill="white"/>
       </svg>
       :
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none"
-      onClick={()=>setHeadDetailOn(true)}>
+        style={{marginBottom: '4rem'}}
+        onClick={()=>setHeadDetailOn1(true)}>
         <path d="M6.72069 0.740201C7.28086 -0.091437 8.50483 -0.0914382 9.065 0.7402L14.9766 9.51657C15.6089 10.4553 14.9362 11.7194 13.8044 11.7194H1.9813C0.849476 11.7194 0.176836 10.4553 0.809141 9.51657L6.72069 0.740201Z" fill="white"/>
       </svg>
       )
-    }
+      }
+
+      {
+        teamData.useDoubleHead &&(
+          <>
+            <div className="w-[317px] h-[110px] relative blur-[7.5px] opacity-40">
+          <svg xmlns="http://www.w3.org/2000/svg" width="317" height="350" viewBox="0 0 317 350" fill="none" 
+            className="absolute top-0 left-0"
+            >
+              {bgIcon(index)}
+          </svg>
+        </div>
+        <MemberProfileImage fileName={teamData.TeamMembers[1].Image} scale={2.4} head={true}/>
+        
+        <h2 className="text-white text-xl mt-16" style={{textShadow: '0px 0px 15px rgba(97, 129, 247, 0.60)'}}>
+          {teamData.TeamMembers[1].Works[1]}
+        </h2>
+        <h1 className="text-white text-2xl m-2" style={{textShadow: '0px 0px 15px rgba(97, 129, 247, 0.60)'}}>
+          {teamData.TeamMembers[1].Name}
+        </h1>
+        {teamData.TeamMembers[1].Insta.length!==0 && 
+        <Link className="w-auto h-auto pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[14px] font-normal"
+          to={`https://www.instagram.com/${teamData.TeamMembers[1].Insta}`}
+          target="_blank"
+        >
+          {'@'+teamData.TeamMembers[1].Insta}
+        </Link>
+        }
+
+        <h2 className="text-white text-[15px] font-light pl-8 pr-8 mt-8 text-justify whitespace-pre-wrap"
+        style={headDetailOn2? hideHeadDetail : showHeadDetail}>
+          {teamData.TeamMembers[1].Words}
+      </h2>
+      {teamData.TeamMembers[1].Words.length!==0 &&(
+        headDetailOn2?
+        <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none"
+        style={{marginBottom: '4rem'}}
+      onClick={()=>setHeadDetailOn2(false)}>
+        <path d="M19.1484 9.7002C19.1484 10.3239 19.3962 10.922 19.8372 11.363C20.2782 11.804 20.8763 12.0518 21.5 12.0518C22.1237 12.0518 22.7218 11.804 23.1628 11.363C23.6038 10.922 23.8516 10.3239 23.8516 9.7002C23.8516 9.07652 23.6038 8.47839 23.1628 8.03739C22.7218 7.59639 22.1237 7.34863 21.5 7.34863C20.8763 7.34863 20.2782 7.59639 19.8372 8.03739C19.3962 8.47839 19.1484 9.07652 19.1484 9.7002ZM19.1484 21.458C19.1484 22.0817 19.3962 22.6798 19.8372 23.1208C20.2782 23.5618 20.8763 23.8096 21.5 23.8096C22.1237 23.8096 22.7218 23.5618 23.1628 23.1208C23.6038 22.6798 23.8516 22.0817 23.8516 21.458C23.8516 20.8343 23.6038 20.2362 23.1628 19.7952C22.7218 19.3542 22.1237 19.1064 21.5 19.1064C20.8763 19.1064 20.2782 19.3542 19.8372 19.7952C19.3962 20.2362 19.1484 20.8343 19.1484 21.458ZM19.1484 33.2158C19.1484 33.8395 19.3962 34.4376 19.8372 34.8786C20.2782 35.3196 20.8763 35.5674 21.5 35.5674C22.1237 35.5674 22.7218 35.3196 23.1628 34.8786C23.6038 34.4376 23.8516 33.8395 23.8516 33.2158C23.8516 32.5921 23.6038 31.994 23.1628 31.553C22.7218 31.112 22.1237 30.8643 21.5 30.8643C20.8763 30.8643 20.2782 31.112 19.8372 31.553C19.3962 31.994 19.1484 32.5921 19.1484 33.2158Z" fill="white"/>
+      </svg>
+      :
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none"
+        style={{marginBottom: '4rem'}}
+        onClick={()=>setHeadDetailOn2(true)}>
+        <path d="M6.72069 0.740201C7.28086 -0.091437 8.50483 -0.0914382 9.065 0.7402L14.9766 9.51657C15.6089 10.4553 14.9362 11.7194 13.8044 11.7194H1.9813C0.849476 11.7194 0.176836 10.4553 0.809141 9.51657L6.72069 0.740201Z" fill="white"/>
+      </svg>
+      )
+      }
+          </>
+
+        )
+      }
 
       <div className="w-full grid grid-cols-2 justify-between">
       {
-        teamData.TeamMembers.length>1 && teamData.TeamMembers.map((member, i)=>{
+        teamData.TeamMembers.length>1 && teamData.TeamMembers.slice(teamData.useDoubleHead?2:1).map((member, i)=>{
           return(
-            i!==0 &&
             <MemberProfileCell key={i} memberData={member} toggled={toggledIndex===i+1} onClick={()=>toggleClicked(i+1)}/>
           )
         })

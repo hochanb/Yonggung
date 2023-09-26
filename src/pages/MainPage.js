@@ -5,6 +5,8 @@ import { useSpring, animated } from "react-spring";
 import { easings } from "@react-spring/web";
 import CenteredSection from "components/CenteredSection";
 import { WaveCenter } from "components/Wave";
+import 'css/custom.css'
+import { Link } from "react-router-dom";
 
 function clampScroll(scroll, sectionIndex) {
   let s = scroll - sectionIndex;
@@ -63,11 +65,12 @@ export function MainPage2(props) {
             width: "174px",
             height: "70px",
             left: "50%",
-            transform: "translateX(-50%)",
+            transform: "translate(-50%,0)",
             textAlign: "center",
             lineHeight: "50px",
             fontSize: "35px",
             fontFamily: "neurimbo Gothic",
+            
           }}
         >
           시작하기
@@ -214,6 +217,7 @@ export function MainPage(props) {
 
           <div
             onClick={onStartButtonClick}
+            className="floating"
             style={{
               position: "absolute",
               borderRadius: "25px",
@@ -351,7 +355,9 @@ export function MainPage(props) {
             }}
           />
 
-          <div
+          <Link
+            to='/map'
+            className="floating"
             style={{
               color: "#FFF",
               position: "absolute",
@@ -368,10 +374,11 @@ export function MainPage(props) {
               lineHeight: "70px",
               fontSize: "35px",
               fontWeight: 900,
+              zIndex: 20,
             }}
           >
             입장하기
-          </div>
+          </Link>
 
           <img
             src={`${process.env.PUBLIC_URL}/images/etc/castle_bg.png`}

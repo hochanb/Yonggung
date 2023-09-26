@@ -29,3 +29,20 @@
 .noscrollbar::-webkit-scrollbar {
     display: none;
 }
+
+.floating {
+    transform: translate(-50%, 0px);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+	0% {
+		transform: translate(-50%, 0px);
+	}
+	50% {
+		transform: translate(-50%, -15px);
+	}
+	100% {
+		transform: translate(-50%, 0px);
+	}
+}
