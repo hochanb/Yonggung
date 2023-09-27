@@ -258,7 +258,7 @@ export const AmmonitePath=({className})=>(
 )
 
 export const SandPath=({className})=>(
-  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="390" height="82" viewBox="0 0 390 82" fill="none">
+  <svg preserveAspectRatio="none" className={className} xmlns="http://www.w3.org/2000/svg" width="390" height="82" viewBox="0 0 390 82" fill="none">
   <g filter="url(#filter0_d_566_846)">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M390 11.2051L383.5 13.2812C377 15.3573 364 19.5094 351 19.5094C338 19.5094 325 15.3572 312 12.7801C299 10.2029 286 9.20064 273 10.704C260 12.2789 247 16.3595 234 17.9344C221 19.5094 208 18.4355 195 16.3595C182 14.355 169 11.2051 156 11.2051C143 11.2051 130 14.355 117 15.8584C104 17.4333 91 17.4333 78 19.5094C65 21.5138 52 25.666 39 27.2409C26 28.7443 13 27.742 6.5 27.2409L-1.82148e-06 26.6682L-8.52374e-06 88L6.49999 88C13 88 26 88 39 88C52 88 65 88 78 88C91 88 104 88 117 88C130 88 143 88 156 88C169 88 182 88 195 88C208 88 221 88 234 88C247 88 260 88 273 88C286 88 299 88 312 88C325 88 338 88 351 88C364 88 377 88 383.5 88L390 88L390 11.2051Z" fill="url(#paint0_linear_566_846)"/>
   </g>

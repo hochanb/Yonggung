@@ -373,7 +373,7 @@ export const TeamDetails=({index})=>{
         <MemberProfileImage fileName={teamData.TeamMembers[1].Image} scale={2.4} head={true}/>
         
         <h2 className="text-white text-xl mt-16" style={{textShadow: '0px 0px 15px rgba(97, 129, 247, 0.60)'}}>
-          {teamData.TeamMembers[1].Works[1]}
+          {teamData.TeamMembers[1].Works[0]}
         </h2>
         <h1 className="text-white text-2xl m-2" style={{textShadow: '0px 0px 15px rgba(97, 129, 247, 0.60)'}}>
           {teamData.TeamMembers[1].Name}

@@ -67,7 +67,6 @@ export function MainPage2(props) {
             left: "50%",
             transform: "translate(-50%,0)",
             textAlign: "center",
-            lineHeight: "50px",
             fontSize: "35px",
             fontFamily: "neurimbo Gothic",
             
@@ -93,8 +92,8 @@ export function MainPage(props) {
 
   const sectionTop=[
     0,
-    1000,
-    2100,
+    1100,
+    2200,
     2906
   ]
 
@@ -148,16 +147,16 @@ export function MainPage(props) {
     console.log(scr);
   };
 
-  useEffect(() => {
-    scrollRef.current.addEventListener("scroll", handleScroll);
-    return () =>
-      scrollRef?.current?.removeEventListener("scroll", handleScroll);
-  }, );
+  // useEffect(() => {
+  //   scrollRef.current.addEventListener("scroll", handleScroll);
+  //   return () =>
+  //     scrollRef?.current?.removeEventListener("scroll", handleScroll);
+  // }, );
 
   const { scroll } = useSpring({
     scroll: scrollTo,
     from: { scroll: 0 },
-    config: { easing: easings.easeInOutCubic, duration: 1500 },
+    config: { easing: easings.easeInOutCubic, duration: 2200 },
   });
 
   return (
@@ -361,7 +360,7 @@ export function MainPage(props) {
             style={{
               color: "#FFF",
               position: "absolute",
-              top: "3100px",
+              top: "3200px",
               borderRadius: "25px",
               border: "1px solid #FFF",
               background: "rgba(255, 255, 255, 0.35)",

@@ -29,7 +29,7 @@ export default function TeamPage(){
 
       <div className="relative">
         <WaveTop1 color="white" className="absolute top-0 w-full"/>
-        <WaveTop2 className="absolute top-0"/>
+        <WaveTop2 className="absolute top-0 w-full"/>
       </div>
 
       <div style={{
