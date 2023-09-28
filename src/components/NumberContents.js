@@ -100,12 +100,12 @@ const SelectedNumber=({index, currentIndex, title})=>{
 
 export const Disc=()=>{
 
-
   const scrollRef=useRef(null);
+  const audioRef=useRef(null);
+  const [play, setPlay] = useState(true)
 
   const [index, setIndex] = useState(0)
   const [r, setR] = useState(0)
-
   const {rotate}=useSpring({
     rotate: r,
     from:{rotate:0},
@@ -121,6 +121,11 @@ export const Disc=()=>{
     // return ()=>scrollRef.current.removeEventListener('mousedown', handleScroll);
   },[])
 
+  function togglePlay(){
+    setPlay(!play)
+    play ? audioRef?.current?.audioEl.current.play() : audioRef?.current?.audioEl.current.pause();
+    // console.log(audioRef.current)
+  }
 
 
   
@@ -169,19 +174,31 @@ export const Disc=()=>{
     
     <ReactAudioPlayer
       src={musicList[index].src}
-      autoPlay
+      autoPlay={!play}
+      ref={audioRef}
       // controls
     />
     
-    <div className='w-20 h-10 bg-pink-200 rounded-sm z-10'
+    <div className='w-full flex justify-center items-center gap-4 mt-8'>
+
+    <img className='w-[47] h-[47] rounded-sm z-10'
+        src={`${process.env.PUBLIC_URL}/images/etc/prevbutton.png`} alt='prev'
         onClick={()=>{
           setIndex((index+8)%9)
           setR(r-rotation)
-        }}>prev</div>
-    <div className='w-20 h-10 bg-pink-200 rounded-sm z-10'onClick={()=>{
-      setIndex((index+1)%9)
-      setR(r+rotation)
-    }}>next</div>
+        }}/>
+        
+    <img className='w-[47] h-[47] rounded-sm z-10'
+      src={play ?`${process.env.PUBLIC_URL}/images/etc/playbutton.png` : `${process.env.PUBLIC_URL}/images/etc/stopbutton.png`} alt='next'
+      onClick={togglePlay}/>
+    
+    <img className='w-[47] h-[47] rounded-sm z-10'
+      src={`${process.env.PUBLIC_URL}/images/etc/nextbutton.png`} alt='next'
+      onClick={()=>{
+        setIndex((index+1)%9)
+        setR(r+rotation)
+    }}/>
+    </div>
 
     <WaveBottom1 className='absolute bottom-0 left-0 w-full' color='white'/>
     <WaveBottom2 className='absolute bottom-0 left-0 w-full' color='white'/>

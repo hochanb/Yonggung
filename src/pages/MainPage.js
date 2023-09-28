@@ -18,69 +18,6 @@ const centeredHorizontal = {
   left: "50%",
 };
 
-export function MainPage2(props) {
-  const [scrollable, setScrollable] = useState(false);
-  const [scrollTo, setScrollTo] = useState(0);
-  const scrollRef = useRef(null);
-
-  function onStartButtonClick() {
-    setScrollable(true);
-    setScrollTo(1000);
-  }
-
-  return (
-    <div className="w-full h-[100vh] bg-yellow-100 relative overflow-scroll">
-      <CenteredSection>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/etc/logo.png`}
-          alt="용궁 배경"
-          style={{
-            ...centeredHorizontal,
-            position: "absolute",
-            width: "100%",
-            top: "200px",
-          }}
-        />
-
-        <img
-          src={`${process.env.PUBLIC_URL}/images/etc/castle_bg_black.png`}
-          alt="용궁 배경"
-          style={{
-            ...centeredHorizontal,
-            position: "absolute",
-            width: "100%",
-            top: "260px",
-          }}
-        />
-
-        <div
-          onClick={onStartButtonClick}
-          style={{
-            position: "absolute",
-            borderRadius: "25px",
-            background: "#FFF",
-            boxShadow:
-              "-2px -4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 0px 50px 0px rgba(0, 0, 0, 0.70)",
-            top: "600px",
-            width: "174px",
-            height: "70px",
-            left: "50%",
-            transform: "translate(-50%,0)",
-            textAlign: "center",
-            fontSize: "35px",
-            fontFamily: "neurimbo Gothic",
-            
-          }}
-        >
-          시작하기
-        </div>
-      </CenteredSection>
-      <CenteredSection>2</CenteredSection>
-      <CenteredSection>3</CenteredSection>
-      <CenteredSection>4</CenteredSection>
-    </div>
-  );
-}
 
 
 export function MainPage(props) {
@@ -214,28 +151,35 @@ export function MainPage(props) {
             }}
           />
 
-          <div
+          <img
             onClick={onStartButtonClick}
-            className="floating"
+            className="floating flex flex-col justify-center items-center"
+            src={`${process.env.PUBLIC_URL}/images/etc/startbutton.png`} alt="start"
             style={{
               position: "absolute",
               borderRadius: "25px",
               background: "#FFF",
               boxShadow:
                 "-2px -4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 0px 50px 0px rgba(0, 0, 0, 0.70)",
+              // filter:'drop-shadow(0px 0px 8px 8px rgb(0,0,0))',
               top: "600px",
               width: "174px",
               height: "70px",
               left: "50%",
               transform: "translateX(-50%)",
+              // lineHeight: "70px",
+              
+            }}
+            />
+          {/* > */}
+            {/* <span style={{
               textAlign: "center",
-              lineHeight: "50px",
               fontSize: "35px",
               fontFamily: "neurimbo Gothic",
-            }}
-          >
-            시작하기
-          </div>
+              lineHeight: "70px",
+            }}>시작하기</span> */}
+          {/* </div> */}
+
 
           <img
             src={`${process.env.PUBLIC_URL}/images/etc/office.png`}

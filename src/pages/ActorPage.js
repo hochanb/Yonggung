@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CastHeader } from "./CastPage";
 import { ActorData } from "MemberInfo";
+import { Link } from "react-router-dom";
 
 function QnA({className, qna, textLeft=false}){
   return(
@@ -92,6 +93,14 @@ export default function ActorPage({index}){
     
     <div className="text-[41px] text-white mb-4">INTERVIEW</div>
     <QnA qna={actor.Questions[0]} textLeft={true}/>
+    {actor.Insta && <div className="w-full flex justify-end pl-8 pr-8">
+        <Link className="w-auto h-auto mt-2 pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-light rounded-full text-center align-middle text-[14px]"
+            to={`https://www.instagram.com/${actor.Insta}`}
+            target="_blank"
+          >
+              {'@' + actor.Insta}
+      </Link>
+    </div>}
     <div className="text-[24px] mb-4 text-white mt-12 underline"  style={{fontFamily:'iceJaram'}}>"지금부터는 극 속 인물의 입장에서 답해주세요!"</div>
       {actor.Questions.slice(1).map((qna, index)=><QnA key={index} qna={qna}/>)}
     </div>
