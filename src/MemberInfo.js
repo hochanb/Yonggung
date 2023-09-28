@@ -201,7 +201,7 @@ export const TeamsData = [
       },
       {
         Name: "김경민",
-        Image: "경영지원팀/김경민.jpg",
+        Image: "디자인팀/김경민.jpg",
         Words: "정신을 차려보니 또 뮤지컬을 하고 있네요! 하하\n새벽 구성원들의 애정 어린 손길이 곳곳에 닿아있는 극이니 두 눈과 귀로 마음껏 즐겨주세요~~!",
         Works: ["디자인 담당"],
         Insta: "kmmin_g",
