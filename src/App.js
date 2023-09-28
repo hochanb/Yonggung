@@ -23,15 +23,15 @@ function App() {
       {/* <NavPage/> */}
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<NavPage/>}/>
-        <Route path="/main" element={<MainPage />}/>
+        {/* <Route path="/" element={<NavPage/>}/> */}
+        <Route path="/" element={<MainPage />}/>
+        <Route path='/map' element={<MapPage/>}/>
         <Route path="/intro" element={<IntroPage/>}/>
         <Route path='/team' element={<TeamPage/>}/>
         <Route path='/musical' element={<MusicalPage/>}/>
         <Route path='/number' element={<NumberPage/>}/>
         <Route path='/cast' element={<CastPage/>}/>
         <Route path='/behind' element={<BehindPage/>}/>
-        <Route path='/map' element={<MapPage/>}/>
         {ActorData.map((actor, index)=>
             <Route key={index} path={`/cast/${index}`} element={<ActorPage index={index}/>}/>
         )}
