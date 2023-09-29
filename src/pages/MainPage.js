@@ -7,6 +7,7 @@ import CenteredSection from "components/CenteredSection";
 import { WaveCenter } from "components/Wave";
 import 'css/custom.css'
 import { Link } from "react-router-dom";
+import Bubble from "components/Bubble";
 
 function clampScroll(scroll, sectionIndex) {
   let s = scroll - sectionIndex;
@@ -99,6 +100,7 @@ export function MainPage(props) {
   return (
     <animated.div
       ref={scrollRef}
+      className={'fade-in-slow'}
       style={{
         width: "100vw",
         height: "100vh",
@@ -333,6 +335,15 @@ export function MainPage(props) {
               top: "3000px",
             }}
           />
+
+          <Bubble left={247} top={1988}  scale={0.2}/>
+          <Bubble left={294} top={2101}  scale={0.3}/>
+          <Bubble left={165} top={2238}  scale={0.4}/>
+          <Bubble left={25} top={2324}  scale={0.3}/>
+          <Bubble left={25} top={2711}  scale={0.4}/>
+          <Bubble left={351} top={2741}  scale={0.3}/>
+          <Bubble left={150} top={2811}  scale={1}/>
+
         </div>
       </div>
     </animated.div>

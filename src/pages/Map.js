@@ -17,6 +17,7 @@ export default function MapPage(){
   return(
     
     <div 
+    className="fade-in"
     style={{
       width: '100vw',
       minHeight:'100vh',

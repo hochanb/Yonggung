@@ -4,6 +4,7 @@ import IntroHeaderTab from "components/IntroHeaderTab";
 import {WaveTop2, WaveTop1} from "components/Wave";
 import { useEffect, useState } from "react";
 import { OrganizationChart } from "components/IntroContents";
+import Bubble from "components/Bubble";
 
 
 export default function IntroPage() {
@@ -33,6 +34,13 @@ export default function IntroPage() {
       index===1? <IntroGreeting/>:
       index===2? <OrganizationChart/>: null
       }
+
+      <Bubble left={243} top={68}  scale={0.4}/>
+      <Bubble left={50} top={145}  scale={0.2}/>
+      <Bubble left={360} top={159}  scale={0.6}/>
+      <Bubble left={30} top={260}  scale={0.8}/>
+      <Bubble left={260} top={270}  scale={0.4}/>
+
       </div>
     </div>
   );

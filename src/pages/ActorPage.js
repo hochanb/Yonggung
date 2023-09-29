@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CastHeader } from "./CastPage";
 import { ActorData } from "MemberInfo";
 import { Link } from "react-router-dom";
+import Bubble from "components/Bubble";
 
 function QnA({className, qna, textLeft=false}){
   return(
@@ -30,8 +31,10 @@ export default function ActorPage({index}){
     style={{
       width: '100vw',
       minHeight:'100vh',
-      paddingBottom: '150px',
+      paddingBottom: '200px',
       background: 'var(--unnamed, linear-gradient(135deg, #4DEDED 0%, #A9C1FF 72.40%, #8B91FF 100%))',
+      position: 'relative',
+      overflow: 'hidden'
     }}>
       <CastHeader/>
 
@@ -102,7 +105,21 @@ export default function ActorPage({index}){
       </Link>
     </div>}
     <div className="text-[24px] mb-4 text-white mt-12 underline"  style={{fontFamily:'iceJaram'}}>"지금부터는 극 속 인물의 입장에서 답해주세요!"</div>
-      {actor.Questions.slice(1).map((qna, index)=><QnA key={index} qna={qna}/>)}
+    {actor.Questions.slice(1).map((qna, index)=><QnA key={index} qna={qna}/>)}
+
+
+      <Bubble left={94} top={94}  scale={0.2}/>
+      <Bubble left={321} top={115}  scale={0.3}/>
+      <Bubble left={365} top={145}  scale={0.4}/>
+      <Bubble left={-5} top={180}  scale={0.8}/>
+      <Bubble left={20} top={693}  scale={0.8}/>
+      <Bubble left={350} top={940}  scale={0.8}/>
+      <Bubble left={16} top={1026}  scale={0.8}/>
+    
+      <Bubble left={13} bottom={40}  scale={1}/>
+      <Bubble left={218} bottom={100}  scale={0.6}/>
+      <Bubble left={380} bottom={130}  scale={1.2}/>
+
     </div>
   )
 }

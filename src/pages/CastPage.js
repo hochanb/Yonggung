@@ -1,6 +1,7 @@
 import { ActorData, DancerData } from "MemberInfo"
 import { Link } from "react-router-dom"
 import { useState } from "react"
+import Bubble from "components/Bubble"
 
 function ProfileCell({style, name="배우명", role="배역명", src='images/members/조유리.jpg', index=1, useDetail=true, toggled=false, onClick}){
     
@@ -13,6 +14,7 @@ function ProfileCell({style, name="배우명", role="배역명", src='images/mem
       border: '3px solid #f0f0f0',
       boxShadow: '0px 4px 10px 0px rgba(0, 0, 0, 0.25) inset',
       position: 'relative',
+      zIndex: 10,
       background:`url(${process.env.PUBLIC_URL}/images/members/${src}) no-repeat center center / cover`,
     }}
     onClick={!useDetail?onClick:()=>{}}
@@ -125,6 +127,7 @@ export default function CastPage(){
       minHeight:'100vh',
       paddingBottom: '150px',
       background: 'var(--unnamed, linear-gradient(135deg, #4DEDED 0%, #A9C1FF 72.40%, #8B91FF 100%))',
+      position: 'relative',
     }}>
 
       <CastHeader/>
@@ -171,12 +174,12 @@ export default function CastPage(){
       </div>
 
       <div className="w-full flex justify-center mt-10">
-      <div className="w-[316px] grid grid-cols-2 items-center justify-center gap-x-4 gap-y-6" >
-        {ActorData.map((data, index)=>{
-          return <ProfileCell key={index} name={data.Name} role={data.Role} src={data.Image} index={index} useDetail={true}/>
-        })
-        }
-      </div>      
+        <div className="w-[316px] grid grid-cols-2 items-center justify-center gap-x-4 gap-y-6" >
+          {ActorData.map((data, index)=>{
+            return <ProfileCell key={index} name={data.Name} role={data.Role} src={data.Image} index={index} useDetail={true}/>
+          })
+          }
+        </div>      
       </div>
 
       <div className="text-white text-[36px] font-light mt-14">
@@ -193,6 +196,18 @@ export default function CastPage(){
       </div>
       <DancerToggle memberData={dancerToggleIndex!==-1 ? DancerData[dancerToggleIndex]:null} toggled={dancerToggleIndex===2}/>
       </div>
+
+      <Bubble left={94} top={94}  scale={0.2}/>
+      <Bubble left={321} top={115}  scale={0.3}/>
+      <Bubble left={365} top={145}  scale={0.4}/>
+      <Bubble left={-5} top={180}  scale={0.8}/>
+      <Bubble left={20} top={693}  scale={0.8}/>
+      <Bubble left={350} top={940}  scale={0.8}/>
+      <Bubble left={16} top={1026}  scale={0.8}/>
+
+      <Bubble left={13} bottom={40}  scale={1}/>
+      <Bubble left={218} bottom={100}  scale={0.6}/>
+      <Bubble left={380} bottom={130}  scale={1.2}/>
 
     </div>
   )
