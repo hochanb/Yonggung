@@ -1,7 +1,8 @@
 import { useRef } from "react"
 import Header from "components/Header";
-import { WaveTop1, WaveTop2 } from "components/Wave";
+import { WaveTop1, WaveTop2, WaveBottom1, WaveBottom2 } from "components/Wave";
 import { Disc } from "components/NumberContents";
+
 
 export default function NumberPage(){
   const ref=useRef(null);
@@ -27,6 +28,10 @@ export default function NumberPage(){
       </div>
 
       <Disc/>
+
+      
+    <WaveBottom1 className='absolute bottom-0 left-0 w-full' color='white'/>
+    <WaveBottom2 className='absolute bottom-0 left-0 w-full' color='white'/>
     </div>
   )
 }

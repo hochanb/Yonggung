@@ -46,7 +46,7 @@ const musicList=[
     description: '상실 저편에는 문이 있어\n어둡고 칙칙한 길 펼쳐져\n너 없는 삶을 질질 끌고 계속 걸어가야 해',
   },
   {
-    title: '나의 갈라테이어',
+    title: '나의 갈라테이아',
     src: `${process.env.PUBLIC_URL}/music/m8.wav`,
     description: '거짓보다 더 달콤하고\n꿈보다 더 영원하지',
   },
@@ -200,8 +200,6 @@ export const Disc=()=>{
     }}/>
     </div>
 
-    <WaveBottom1 className='absolute bottom-0 left-0 w-full' color='white'/>
-    <WaveBottom2 className='absolute bottom-0 left-0 w-full' color='white'/>
     </>
   )
 }
