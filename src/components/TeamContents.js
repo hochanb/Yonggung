@@ -141,7 +141,7 @@ const MemberProfileCell=({memberData, toggled=false, onClick, position, index})=
         {toggled?`${memberData.Name} ▲`: `${memberData.Name} ▼`}
       </div>
 
-      {memberData.Insta ?
+      {memberData.Insta && memberData.Insta!="">0 ?
         <Link className="w-auto h-auto mt-2 pr-2 pl-2 pt-1 pb-1 bg-[rgba(255,255,255,0.5)] text-[#6181F7] font-bold rounded-full text-center align-middle text-[10px]"
           to={`https://www.instagram.com/${memberData.Insta}`}
           target="_blank"
